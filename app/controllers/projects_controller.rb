@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Project Created!'
       respond_with(@project, :location => projects_path)
     else
-      flash[:error] = 'Invalid Project Information!'
+      show_errors(@project)
       redirect_to new_project_path
     end
   end
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Project Updated!'
       respond_with(@project, :location => project_path(@project))
     else
-      flash[:error] = 'Invalid Project Information!'
+      show_errors(@project)
       redirect_to edit_project_path(@project)
     end
   end
@@ -46,9 +46,8 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Project Deleted!'
       redirect_to projects_path
     else
-      flash[:error] = 'Error deleting project!'
-      redirect_to edit_project_path(@project)
+      show_errors(@project)
+      redirect_to project_path(@project)
     end
   end
-  
 end

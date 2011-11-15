@@ -5,38 +5,44 @@ Feature: Manage Projects
 
 	Scenario Outline: Create a new project
 		Given I am on the projects list page
-		And I click a link to the new project page
+		And I click on "New Project"
 		And I fill in "Title" with "<title>"
 		And I fill in "Description" with "<description>"
-		When I submit the form
+		When I click on "Create Project"
 		Then I should be redirect to the <path>
-		And I should a see "<message>" message
+		And I should a see "<message>"
 		
-		Scenarios:
-      | title 				| description														|	path								| message											 |
-      | MyCoupons.com | A web app to organize online coupons. |	projects list page	| Project Created!						 |
-      |    						| A web app to organize online coupons. |	new project page		| Invalid Project Information! |
-      | MyCoupons.com | 																	    |	new project page		| Invalid Project Information! |
+		Examples: with valid fields
+      | title 				| description														|	path					| message					 |
+      | MyCoupons.com | A web app to organize online coupons. | projects page	|	Project Created! |
+  
+		Examples: with invalid fields
+      | title 				| description														| path							|	message											 |
+      |    						| A web app to organize online coupons. | new project page	|	Title can't be blank			 	 |
+      | MyCoupons.com | 																	    | new project page	| Description can't be blank	 |
   
   Scenario Outline: Editing an existing project
-  	Given I have an existing project
-  	And I am on an existing project page
-  	And I click a link to an existing project edit page
+  	Given I have an existing "project"
+  	And I am on this project page
+  	And I click on "Edit"
 		And I fill in "Title" with "<title>"
 		And I fill in "Description" with "<description>"
-		When I submit the form
+		When I click on "Update Project"
 		Then I should be redirect to the <path>
-		And I should a see "<message>" message
+		And I should a see "<message>"
 		
-		Scenarios:
-      | title 				| description														|	path	| message											 |
-      | MyCoupons.com | A web app to organize online coupons. |	existing project page	| Project Updated!						 |
-      |    						| A web app to organize online coupons. |	edit project page			| Invalid Project Information! |
-      | MyCoupons.com | 																	    |	edit project page			| Invalid Project Information! |
+		Examples: with valid fields
+      | title 				| description														| path					| message						|
+      | MyCoupons.com | A web app to organize online coupons. | project page	|	Project Updated!	|
+    
+		Examples: with invalid fields
+      | title 				| description														| path							| message											 |
+      |    						| A web app to organize online coupons. | edit project page	|	Title can't be blank	 			 |
+      | MyCoupons.com | 																	    | edit project page	|	Description can't be blank 	 |
       
   Scenario: Deleting an existing project
-  	Given I have an existing project
-  	And I am on an existing project page
-  	When I click a link to delete this project
-  	Then I should be redirect to the projects list page
-  	And I should a see "Project Deleted!" message
+  	Given I have an existing "project"
+  	And I am on this project page
+  	When I click on "Delete"
+  	Then I should be redirect to the projects page
+  	And I should a see "Project Deleted!"

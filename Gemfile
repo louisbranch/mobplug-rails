@@ -27,4 +27,5 @@ group :development, :test do
   gem "guard-spork"
   gem 'capybara'
   gem 'launchy'
+  gem 'libnotify'
 end
