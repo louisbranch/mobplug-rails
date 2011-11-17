@@ -13,7 +13,6 @@ end
 gem 'jquery-rails'
 
 gem 'execjs'
-gem 'fb_graph'
 gem 'haml'
 gem 'haml-rails'
 gem 'therubyracer'

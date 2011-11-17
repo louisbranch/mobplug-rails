@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(params[:project])
     if @project.save
       flash[:notice] = 'Project Created!'
-      respond_with(@project, :location => projects_path)
+      respond_with(@project, :location => project_path(@project))
     else
       show_errors(@project)
       redirect_to new_project_path

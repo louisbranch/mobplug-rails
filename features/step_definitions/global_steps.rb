@@ -1,3 +1,7 @@
+Given /^I have an existing "([^"]*)"$/ do |object|
+  Factory(object)
+end
+
 Given /^I click on "([^"]*)"$/ do |link|
   click_on link
 end

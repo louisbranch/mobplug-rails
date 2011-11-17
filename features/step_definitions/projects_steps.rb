@@ -3,16 +3,12 @@ Given /^I (?:am on|go to) the projects list page$/ do
 end
 
 Given /^I (?:am on|go to) (?:the|this) project page$/ do
-  visit project_path(@project)
-end
-
-Given /^I have an existing "([^"]*)"$/ do |object|
-  @project = Factory(object)
+  visit project_path(Project.first)
 end
 
 Given /^the following project:$/ do |table|
   table.hashes.each do |hash|
-    @project = Factory.create(:project, hash)
+    Factory.create(:project, hash)
   end
 end
 
@@ -20,6 +16,10 @@ Given /^the following projects:$/ do |table|
   table.hashes.each do |hash|
     Factory.create(:project, hash)
   end
+end
+
+Then /^I should have "([^"]*)" new projects?$/ do |count|
+  Project.count.should == count.to_i
 end
 
 Then /^I should be redirect to the projects page$/ do
@@ -31,11 +31,11 @@ Then /^I should be redirect to the new project page$/ do
 end
 
 Then /^I should be redirect to (?:the|this) project page$/ do
-  assert current_path == project_path(@project)
+  assert current_path == project_path(Project.first)
 end
 
 Then /^I should be redirect to the edit project page$/ do
-  assert current_path == edit_project_path(@project)
+  assert current_path == edit_project_path(Project.first)
 end
 
 Then /^I should see:$/ do |table|
