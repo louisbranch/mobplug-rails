@@ -1,4 +1,4 @@
-Feature: Deny admin tasks from non-logged users
+Feature: Deny project admin tasks from non-logged users
 	In order to restrict who can manage projects
 	As a site owner
 	I want deny admin tasks if the user is not logged in

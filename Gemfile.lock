@@ -73,6 +73,9 @@ GEM
       factory_girl (~> 2.2.0)
       railties (>= 3.0.0)
     ffi (1.0.10)
+    fuubar-cucumber (0.0.15)
+      cucumber (>= 1.0.2)
+      ruby-progressbar (~> 0.0.10)
     gherkin (2.6.3)
       json (>= 1.4.6)
     guard (0.8.8)
@@ -148,6 +151,7 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.7.0)
+    ruby-progressbar (0.0.10)
     rubyzip (0.9.4)
     sass (3.1.10)
     sass-rails (3.1.4)
@@ -194,6 +198,7 @@ DEPENDENCIES
   database_cleaner
   execjs
   factory_girl_rails
+  fuubar-cucumber
   guard-spork
   haml
   haml-rails

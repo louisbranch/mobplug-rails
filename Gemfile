@@ -27,7 +27,8 @@ group :development, :test do
   gem 'libnotify'
   gem 'rb-inotify'
   gem 'capybara-webkit'
-  #em 'capybara-mechanize', "~> 0.3.0.rc2" 
+  #em 'capybara-mechanize', "~> 0.3.0.rc2"
+  gem 'fuubar-cucumber'
 end
 
 group :production do
