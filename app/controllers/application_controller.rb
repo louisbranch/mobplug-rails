@@ -10,5 +10,5 @@ class ApplicationController < ActionController::Base
     else
       flash[:error] = 'An error has occured!'
     end
-  end  
+  end
 end

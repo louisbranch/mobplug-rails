@@ -21,5 +21,5 @@ Feature: View Projects
 			|	title					|	description		|
 			|	MyCoupons.com	|	The best site	|
 		When I go to this project page
-		Then I should a see "MyCoupons.com"
-		And I should a see "The best site"
+		Then I should see "MyCoupons.com"
+		And I should see "The best site"
