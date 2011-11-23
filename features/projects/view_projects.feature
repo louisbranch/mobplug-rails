@@ -9,7 +9,7 @@ Feature: View Projects
 			|	MyCoupons.com	|
 			|	FallingBlocks	|
 			|	PlanesDrop		|
-		When I go to the projects list page
+		When I go to the projects page
 		Then I should see:
 			|	title					|
 			|	MyCoupons.com	|
@@ -20,6 +20,8 @@ Feature: View Projects
 		Given the following project:
 			|	title					|	description		|
 			|	MyCoupons.com	|	The best site	|
-		When I go to this project page
-		Then I should see "MyCoupons.com"
+		And I am on the projects page
+		When I click on "MyCoupons.com"
+		Then I should be redirect to this project page
+		And I should see "MyCoupons.com"
 		And I should see "The best site"

@@ -1,5 +1,9 @@
-Given /^I (?:am on|go to) the projects list page$/ do
+Given /^I (?:am on|go to) the projects page$/ do
   visit projects_path
+end
+
+Given /^I (?:am on|go to) the new project page$/ do
+  visit new_project_path
 end
 
 Given /^I (?:am on|go to) (?:the|this) project page$/ do
@@ -29,6 +33,10 @@ Given /^the following projects:$/ do |table|
   table.hashes.each do |hash|
     Factory.create(:project, hash)
   end
+end
+
+When /^I go to this project edit page$/ do
+  visit edit_project_path(Project.first)
 end
 
 Then /^I should be redirect to the projects page$/ do

@@ -14,7 +14,6 @@ gem 'execjs'
 gem 'haml'
 gem 'haml-rails'
 gem 'therubyracer'
-gem 'clearance'
 
 group :development, :test do
   gem 'rspec-rails'

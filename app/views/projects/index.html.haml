@@ -1,5 +1,5 @@
 %h2 Projects
-= link_to 'New Project', new_project_path
+= link_to 'New Project', new_project_path if admin?
 %ul
   - @projects.each do |project|
-    %li= project.title
+    %li= link_to project.title, project_path(project)

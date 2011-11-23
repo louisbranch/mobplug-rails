@@ -4,10 +4,10 @@ Feature: Manage Projects
 	I want to create and manage projects
 	
 	Background:
-		Given I am logged in as "admin" with "password"
+		Given I am logged in
 	
 	Scenario: Create a new project
-		Given I am on the projects list page
+		Given I am on the projects page
 		And I click on "New Project"
 		And I fill in "Title" with "MyCoupons.com"
 		And I fill in "Description" with "A web app to organize online coupons."
@@ -17,7 +17,7 @@ Feature: Manage Projects
 		And I should see "Project Created!"
 		
 	Scenario Outline: Create a new project with required blank fields
-		Given I am on the projects list page
+		Given I am on the projects page
 		And I click on "New Project"
 		And I fill in "Title" with "<title>"
 		And I fill in "Description" with "<description>"
