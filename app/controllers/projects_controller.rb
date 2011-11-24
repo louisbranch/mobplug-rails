@@ -3,14 +3,17 @@ class ProjectsController < ApplicationController
   respond_to :html, :json, :xml
   
   def index
+    @categories = Category.all
     @projects = Project.all
   end
   
   def show
     @project = Project.find(params[:id])
+    @categories = @project.categories
   end
 
   def new
+    @categories = Category.all
     @project = Project.new
   end
   
@@ -26,6 +29,7 @@ class ProjectsController < ApplicationController
   end
   
   def edit
+    @categories = Category.all
     @project = Project.find(params[:id])
   end
   

@@ -10,3 +10,9 @@ Given /^I should have "([^"]*)" (?:category|categories)$/ do |number|
   number = number.to_i
   Category.count.should == number
 end
+
+Given /^the following (?:category|categories)?:$/ do |table|
+  table.hashes.each do |hash|
+    Factory.create(:category, hash)
+  end
+end

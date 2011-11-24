@@ -3,4 +3,9 @@
   = f.text_field :title
   = f.label :description, 'Description'
   = f.text_area :description
+  %field_set
+    %legend Categories
+    = @categories.each do |category|
+      = check_box_tag "category_#{category.id}", category.id, @project.categories.include?(category), :name => 'project[category_ids][]'
+      = label_tag "category_#{category.id}", category.title
   = f.submit

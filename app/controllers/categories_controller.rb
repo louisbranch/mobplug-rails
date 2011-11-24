@@ -2,11 +2,7 @@ class CategoriesController < ApplicationController
   before_filter :authorize
   
   def index
-    
-  end
-  
-  def show
-    
+    @categories = Category.all
   end
   
   def new
@@ -17,7 +13,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
     if @category.save
       flash[:notice] = 'Category Created!'
-      redirect_to category_path(@category)
+      redirect_to categories_path
     else
       show_errors(@category)
       redirect_to new_category_path
@@ -33,7 +29,7 @@ class CategoriesController < ApplicationController
     @category.update_attributes(params[:category])
     if @category.save
       flash[:notice] = 'Category Updated!'
-      redirect_to category_path(@category)
+      redirect_to categories_path
     else
       show_errors(@category)
       redirect_to edit_category_path

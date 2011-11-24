@@ -13,7 +13,7 @@ Feature: Manage Projects
 		And I fill in "Description" with "A web app to organize online coupons."
 		When I click on "Create Project"
 		Then I should have "1" project
-		And I should be redirect to this project page
+		And I should be redirected to this project page
 		And I should see "Project Created!"
 		
 	Scenario Outline: Create a new project with required blank fields
@@ -23,7 +23,7 @@ Feature: Manage Projects
 		And I fill in "Description" with "<description>"
 		When I click on "Create Project"
 		Then I should have "0" projects
-		And I should be redirect to the new project page
+		And I should be redirected to the new project page
 		And I should see "<message>"
 		
 		Examples:
@@ -38,7 +38,7 @@ Feature: Manage Projects
 		And I fill in "Title" with "<title>"
 		And I fill in "Description" with "<description>"
 		When I click on "Update Project"
-		Then I should be redirect to the <path>
+		Then I should be redirected to the <path>
 		And I should see "<message>"
 		
 		Examples: with valid fields
@@ -55,5 +55,5 @@ Feature: Manage Projects
   	And I am on this project page
   	When I click on "Delete"
   	Then I should have "0" projects
-  	And I should be redirect to the projects page
+  	And I should be redirected to the projects page
   	And I should see "Project Deleted!"

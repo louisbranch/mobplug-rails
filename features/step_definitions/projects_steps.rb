@@ -16,10 +16,3 @@ Given /^the following projects?:$/ do |table|
     Factory.create(:project, hash)
   end
 end
-
-Then /^I should see:$/ do |table|
-  table.map_column!('title') do |title| 
-    page.should have_content hash
-  end
-end
-

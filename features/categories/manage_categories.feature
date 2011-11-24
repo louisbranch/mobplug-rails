@@ -12,7 +12,7 @@ Feature: Manage Categories
 		And I fill in "Title" with "Web App"
 		When I click on "Create Category"
 		Then I should have "1" category
-		And I should be redirect to this category page
+		And I should be redirected to the categories page
 		And I should see "Category Created!"
 	
 	Scenario: Create a new project with required blank fields
@@ -21,21 +21,21 @@ Feature: Manage Categories
 		And I fill in "Title" with ""
 		When I click on "Create Category"
 		Then I should have "0" categories
-		And I should be redirect to the new category page
+		And I should be redirected to the new category page
 		And I should see "Title can't be blank"
 		
 	Scenario Outline: Editing an existing category
   	Given I have "1" category
-  	And I am on this category page
+  	And I am on the categories page
   	And I click on "Edit"
 		And I fill in "Title" with "<title>"
 		When I click on "Update Category"
-		Then I should be redirect to the <path>
+		Then I should be redirected to the <path>
 		And I should see "<message>"
 		
 		Examples: with valid fields
-      | title 	| path					| message						|
-      | Web App | category page	|	Category Updated!	|
+      | title 	| path					  | message						|
+      | Web App | categories page	|	Category Updated!	|
     
 		Examples: with invalid fields
       | title | path							  | message              |
@@ -43,8 +43,8 @@ Feature: Manage Categories
       
   Scenario: Deleting an existing category
   	Given I have "1" category
-  	And I am on this category page
+  	And I am on the categories page
   	When I click on "Delete"
   	Then I should have "0" categories
-  	And I should be redirect to the categories page
+  	And I should be redirected to the categories page
   	And I should see "Category Deleted!"

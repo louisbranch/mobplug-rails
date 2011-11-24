@@ -6,5 +6,5 @@ Feature: Logout as Admin
 	Scenario: Successful logout
 		Given I am logged in
 		When I go to the logout page
-		Then I should be redirect to the index page
+		Then I should be redirected to the index page
 		And I should see "See you later!"

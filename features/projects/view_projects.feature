@@ -22,6 +22,6 @@ Feature: View Projects
 			|	MyCoupons.com	|	The best site	|
 		And I am on the projects page
 		When I click on "MyCoupons.com"
-		Then I should be redirect to this project page
+		Then I should be redirected to this project page
 		And I should see "MyCoupons.com"
 		And I should see "The best site"
