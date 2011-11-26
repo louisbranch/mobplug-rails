@@ -1,17 +1,18 @@
 class ContactsController < ApplicationController
   
-  def index
+  def show
     @contact = Contact.new
   end
   
   def create
     @contact = Contact.new(params[:contact])
     if @contact.valid?
-      # TODO send message here
+      ContactMailer.send_email(@contact).deliver
       flash[:notice] = "Email has been sent!"
-      redirect_to contacts_path
+      redirect_to root_path
     else
-      render :index
+      show_errors(@contact)
+      render :show
     end
   end
   

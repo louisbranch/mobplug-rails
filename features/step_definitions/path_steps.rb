@@ -1,6 +1,6 @@
 # Global
 
-Then /^I should be redirected to the index page$/ do
+Then /^I should be redirected to the home page$/ do
   assert current_path == root_path
 end
 
@@ -130,5 +130,5 @@ end
 
 # Contact
 Given /^I go to the contact page$/ do
-  visit contacts_path
+  visit contact_path
 end

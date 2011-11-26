@@ -18,6 +18,12 @@ Given /^I check:$/ do |table|
   end
 end
 
+Given /^I fill in "([^"]*)" with more than "([^"]*)" caracters$/ do |field, number|
+  number = number.to_i + 1
+  sentence = Faker::Lorem.sentence(caracter_count = number)
+  fill_in field, :with => sentence
+end
+
 Given /^I uncheck "([^"]*)"$/ do |item|
   uncheck item
 end

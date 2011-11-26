@@ -6,7 +6,7 @@ Given /^I am logged in$/ do
     Given I go to the login page
 		And I fill in "Password" with "foobar"
 		When I click on "Login"
-		Then I should be redirected to the index page
+		Then I should be redirected to the home page
 		And I should see "Welcome Back!"
   }
 end

@@ -1,6 +1,6 @@
 Mobplug::Application.routes.draw do
   
-  resources :contacts, :only => [:index, :create]
+  resource :contact, :only => [:show, :create]
   resources :roles, :except => [:show]
   resources :categories
   resources :projects

@@ -30,6 +30,7 @@ group :development, :test do
   gem 'capybara-webkit'
   #em 'capybara-mechanize', "~> 0.3.0.rc2"
   gem 'fuubar-cucumber'
+  gem 'faker'
 end
 
 group :production do
