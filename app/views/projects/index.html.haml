@@ -1,5 +1,17 @@
 %h2 Projects
 = link_to 'New Project', new_project_path if admin?
 %ul
+  - @categories.each do |category|
+    %li= link_to category.title, category_path(category)
+%ul
   - @projects.each do |project|
-    %li= link_to project.title, project_path(project)
+    %li
+      = link_to project.title, project_path(project)
+      %p= project.resume
+      %ul
+        - project.categories.each do |category|
+          %li= category.title
+      %ul
+        - project.roles.each do |role|
+          %li= role.title    
+      

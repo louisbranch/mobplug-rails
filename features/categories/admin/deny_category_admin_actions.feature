@@ -6,10 +6,6 @@ Feature: Deny category admin tasks from non-logged users
 	Background:
 		Given I am not logged in
 
-	Scenario: Deny see the categories page
-		When I go to the categories page
-		Then I should see "Not here, Cowboy!"
-
 	Scenario: Deny create a new category
 		When I go to the new category page
 		Then I should see "Not here, Cowboy!"

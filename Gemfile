@@ -22,6 +22,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'spork', '> 0.9.0.rc'
   gem 'guard-spork'
+  gem 'guard-cucumber'
   gem 'capybara'
   gem 'launchy'
   gem 'libnotify'

@@ -72,6 +72,10 @@ Given /^I (?:am on|go to) the new category page$/ do
   visit new_category_path
 end
 
+When /^I (?:am on|go to) (?:the|this) category page$/ do
+  visit category_path(Category.first)
+end
+
 When /^I go to this category edit page$/ do
   visit edit_category_path(Category.first)
 end
@@ -84,6 +88,47 @@ Then /^I should be redirected to the new category page$/ do
   assert current_path == new_category_path
 end
 
+Then /^I should be redirected to (?:the|this) category page$/ do
+  assert current_path == category_path(Category.first)
+end
+
 Then /^I should be redirected to the edit category page$/ do
   assert current_path == edit_category_path(Category.first)
+end
+
+
+
+
+
+# Roles
+
+Given /^I (?:am on|go to) the roles page$/ do
+  visit roles_path
+end
+
+Given /^I (?:am on|go to) the new role page$/ do
+  visit new_role_path
+end
+
+When /^I go to this role edit page$/ do
+  visit edit_role_path(Role.first)
+end
+
+Then /^I should be redirected to the roles page$/ do
+  assert current_path == roles_path
+end
+
+Then /^I should be redirected to the new role page$/ do
+  assert current_path == new_role_path
+end
+
+Then /^I should be redirected to the edit role page$/ do
+  assert current_path == edit_role_path(Role.first)
+end
+
+
+
+# Contact
+Given /^I go to the contact page$/ do
+  visit contacts_path
 end

@@ -1,7 +1,12 @@
 %h3= @project.title
+%p= @project.resume
 %p= @project.description
-= link_to 'Edit', edit_project_path(@project) if admin?
-= link_to 'Delete', project_path(@project), :method => :delete, :confirm => 'Are you sure?' if admin?
+- if admin?
+  = link_to 'Edit', edit_project_path(@project)
+  = link_to 'Delete', project_path(@project), :method => :delete, :confirm => 'Are you sure?'
 %ul
-  = @categories.each do |category|
+  - @categories.each do |category| 
     %li= category.title
+%ul
+  - @roles.each do |role| 
+    %li= role.title

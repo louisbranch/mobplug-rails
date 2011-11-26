@@ -10,7 +10,7 @@ Feature: Manage Projects
 		Given I am on the projects page
 		And I click on "New Project"
 		And I fill in "Title" with "MyCoupons.com"
-		And I fill in "Description" with "A web app to organize online coupons."
+		And I fill in "Resume" with "A web app to organize online coupons."
 		When I click on "Create Project"
 		Then I should have "1" project
 		And I should be redirected to this project page
@@ -20,35 +20,35 @@ Feature: Manage Projects
 		Given I am on the projects page
 		And I click on "New Project"
 		And I fill in "Title" with "<title>"
-		And I fill in "Description" with "<description>"
+		And I fill in "Resume" with "<resume>"
 		When I click on "Create Project"
 		Then I should have "0" projects
 		And I should be redirected to the new project page
 		And I should see "<message>"
 		
 		Examples:
-      | title 				| description														|	message											 |
-      |    						| A web app to organize online coupons. | Title can't be blank			 	 |
-      | MyCoupons.com | 																	    | Description can't be blank	 |
+      | title         | resume                                |	message                 |
+      |               | A web app to organize online coupons. | Title can't be blank    |
+      | MyCoupons.com |                                       | Resume can't be blank   |
 
   Scenario Outline: Editing an existing project
   	Given I have "1" project
   	And I am on this project page
   	And I click on "Edit"
 		And I fill in "Title" with "<title>"
-		And I fill in "Description" with "<description>"
+		And I fill in "Resume" with "<resume>"
 		When I click on "Update Project"
 		Then I should be redirected to the <path>
 		And I should see "<message>"
 		
 		Examples: with valid fields
-      | title 				| description														| path					| message						|
-      | MyCoupons.com | A web app to organize online coupons. | project page	|	Project Updated!	|
+      | title         | resume                                | path          | message          |
+      | MyCoupons.com | A web app to organize online coupons. | project page	|	Project Updated! |
     
 		Examples: with invalid fields
-      | title 				| description														| path							| message											 |
-      |    						| A web app to organize online coupons. | edit project page	|	Title can't be blank	 			 |
-      | MyCoupons.com | 																	    | edit project page	|	Description can't be blank 	 |
+      | title 				| resume    														| path							| message               |
+      |               | A web app to organize online coupons. | edit project page	|	Title can't be blank  |
+      | MyCoupons.com |                                       | edit project page	|	Resume can't be blank |
       
   Scenario: Deleting an existing project
   	Given I have "1" project

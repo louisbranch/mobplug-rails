@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :project do
     title 'MyCoupons.com'
-    description  'A web app to organize online coupons.'
+    resume  'A web app to organize online coupons.'
+    description  'Lorem ipsum dolor assimet...'
   end
 end

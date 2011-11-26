@@ -10,10 +10,12 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @categories = @project.categories
+    @roles = @project.roles
   end
 
   def new
     @categories = Category.all
+    @roles = Role.all
     @project = Project.new
   end
   
@@ -29,6 +31,7 @@ class ProjectsController < ApplicationController
   end
   
   def edit
+    @roles = Role.all
     @categories = Category.all
     @project = Project.find(params[:id])
   end

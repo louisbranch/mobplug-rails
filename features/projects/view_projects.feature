@@ -5,23 +5,20 @@ Feature: View Projects
 	
 	Scenario: View the projects list
 		Given the following projects:
-			|	title					|
-			|	MyCoupons.com	|
-			|	FallingBlocks	|
-			|	PlanesDrop		|
+			|	title					| resume                    |
+			|	MyCoupons.com	|	Enjoy your online coupons |
+			|	FallingBlocks	| Play this addictive game  |
 		When I go to the projects page
 		Then I should see:
-			|	title					|
-			|	MyCoupons.com	|
-			|	FallingBlocks	|
-			|	PlanesDrop		|
+			|	MyCoupons.com	|	Enjoy your online coupons |
+			|	FallingBlocks	| Play this addictive game  |
 	
 	Scenario: View a project information
 		Given the following project:
-			|	title					|	description		|
-			|	MyCoupons.com	|	The best site	|
+			|	title					| resume                           |	description		|
+			|	MyCoupons.com	|	Don't lose track of your coupons | The best site	|
 		And I am on the projects page
 		When I click on "MyCoupons.com"
 		Then I should be redirected to this project page
-		And I should see "MyCoupons.com"
-		And I should see "The best site"
+		And I should see:
+			|	MyCoupons.com	|	Don't lose track of your coupons | The best site	|

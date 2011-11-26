@@ -1,11 +1,18 @@
 = form_for @project do |f|
   = f.label :title, 'Title'
   = f.text_field :title
+  = f.label :resume, 'Resume'
+  = f.text_area :resume
   = f.label :description, 'Description'
   = f.text_area :description
   %field_set
     %legend Categories
-    = @categories.each do |category|
+    - @categories.each do |category|
       = check_box_tag "category_#{category.id}", category.id, @project.categories.include?(category), :name => 'project[category_ids][]'
       = label_tag "category_#{category.id}", category.title
+  %field_set
+    %legend Roles
+    - @roles.each do |role|
+      = check_box_tag "role_#{role.id}", role.id, @project.roles.include?(role), :name => 'project[role_ids][]'
+      = label_tag "role_#{role.id}", role.title
   = f.submit

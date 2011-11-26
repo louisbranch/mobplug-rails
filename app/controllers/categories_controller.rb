@@ -1,8 +1,13 @@
 class CategoriesController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, :except => [:index, :show]
   
   def index
     @categories = Category.all
+  end
+  
+  def show
+    @category = Category.find(params[:id])
+    @projects = @category.projects
   end
   
   def new
@@ -13,7 +18,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
     if @category.save
       flash[:notice] = 'Category Created!'
-      redirect_to categories_path
+      redirect_to category_path(@category)
     else
       show_errors(@category)
       redirect_to new_category_path
@@ -29,7 +34,7 @@ class CategoriesController < ApplicationController
     @category.update_attributes(params[:category])
     if @category.save
       flash[:notice] = 'Category Updated!'
-      redirect_to categories_path
+      redirect_to category_path(@category)
     else
       show_errors(@category)
       redirect_to edit_category_path

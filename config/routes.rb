@@ -1,9 +1,9 @@
 Mobplug::Application.routes.draw do
   
-  resources :categories, :except => :show
-  
+  resources :contacts, :only => [:index, :create]
+  resources :roles, :except => [:show]
+  resources :categories
   resources :projects
-  
   resources :sessions, :only => [:create]
   
   match "login" => "sessions#new"
