@@ -6,8 +6,7 @@ class ContactsController < ApplicationController
   
   def create
     @contact = Contact.new(params[:contact])
-    if @contact.valid?
-      ContactMailer.send_email(@contact).deliver
+    if @contact.valid? && ContactMailer.send_email(@contact).deliver
       flash[:notice] = "Email has been sent!"
       redirect_to root_path
     else
