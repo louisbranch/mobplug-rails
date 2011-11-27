@@ -1,0 +1,5 @@
+%nav#main
+  =link_to 'Home', root_path, is_controller_active?("home")
+  =link_to 'Projects', projects_path, is_controller_active?("projects, categories")
+  =link_to 'Contact', contact_path, is_controller_active?("contacts")
+  

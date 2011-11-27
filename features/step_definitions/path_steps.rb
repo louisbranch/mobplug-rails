@@ -1,13 +1,14 @@
-# Global
+################################# Global #################################
+
+Given /^I go to the home page$/ do
+  visit root_path
+end
 
 Then /^I should be redirected to the home page$/ do
   assert current_path == root_path
 end
 
-
-
-
-# Authorization
+############################# Authorization ##############################
 
 Given /^I go to the login page$/ do
   visit login_path
@@ -21,11 +22,7 @@ Then /^I should be redirected to the login page$/ do
   assert current_path == login_path
 end
 
-
-
-
-
-# Projects
+############################# Projects ###################################
 
 Given /^I (?:am on|go to) the projects page$/ do
   visit projects_path
@@ -59,10 +56,7 @@ Then /^I should be redirected to the edit project page$/ do
   assert current_path == edit_project_path(Project.first)
 end
 
-
-
-
-# Categories
+############################## Categories #################################
 
 Given /^I (?:am on|go to) the categories page$/ do
   visit categories_path
@@ -96,11 +90,7 @@ Then /^I should be redirected to the edit category page$/ do
   assert current_path == edit_category_path(Category.first)
 end
 
-
-
-
-
-# Roles
+################################# Roles ###################################
 
 Given /^I (?:am on|go to) the roles page$/ do
   visit roles_path
@@ -126,9 +116,8 @@ Then /^I should be redirected to the edit role page$/ do
   assert current_path == edit_role_path(Role.first)
 end
 
+################################ Contact ###################################
 
-
-# Contact
 Given /^I go to the contact page$/ do
   visit contact_path
 end
