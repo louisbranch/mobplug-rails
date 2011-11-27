@@ -1,6 +1,6 @@
 Feature: View Categories as a potencial client
 	In order to know which categories are available
-	As a site potencial client
+	As a user
 	I want to view all categories
 
 	Scenario: View the categories list on the categories page

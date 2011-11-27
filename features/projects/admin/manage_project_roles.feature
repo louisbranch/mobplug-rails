@@ -1,6 +1,6 @@
 Feature: Manage Project Roles
 	In order to group the projects by roles performed
-	As a site owner
+	As a site admin
 	I want manage which roles a project has
 	
 	Background:

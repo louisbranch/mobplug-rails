@@ -1,6 +1,6 @@
 Feature: View Projects Images
 	In order to view how the project looks
-	As a potencial client
+	As a user
 	I want to view the project images
 	
 	Scenario: View images small size on the project page

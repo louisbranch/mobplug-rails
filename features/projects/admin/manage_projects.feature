@@ -1,6 +1,6 @@
 Feature: Manage Projects
 	In order to show our previous projects to future clients
-	As a site administrator
+	As a site admin
 	I want to create and manage projects
 	
 	Background:
@@ -9,8 +9,11 @@ Feature: Manage Projects
 	Scenario: Create a new project
 		Given I am on the projects page
 		And I click on "New Project"
-		And I fill in "Title" with "MyCoupons.com"
-		And I fill in "Resume" with "A web app to organize online coupons."
+ 		And I fill the following: 
+	 	| Title       | MyCoupons.com                           |
+	 	| Resume      | A web app to organize online coupons.   |
+	 	| Description | Don't lose track of your online coupons |
+	 	| URL         | http://luizbranco.com                   |
 		When I click on "Create Project"
 		Then I should have "1" project
 		And I should be redirected to this project page

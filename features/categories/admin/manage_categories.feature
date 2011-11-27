@@ -1,6 +1,6 @@
 Feature: Manage Categories
 	In order to arrange our previous projects into categories
-	As a site administrator
+	As a site admin
 	I want to create and manage categories
 	
 	Background:

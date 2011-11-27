@@ -1,6 +1,6 @@
 Feature: Login as Admin
 	In order to manage the site
-	As a site owner
+	As a site admin
 	I want to login and receive admin privileges
 	
 	Scenario: Successful login

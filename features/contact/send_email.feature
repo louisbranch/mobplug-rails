@@ -1,7 +1,7 @@
 Feature: Send a contact email to the site
- In order to contact the site team
- As a potencial client
- I want to send email through the site
+  In order to contact the site team
+  As a user
+  I want to send email through the site
  
  Background:
   Given I go to the contact page

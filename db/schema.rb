@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20111126191059) do
     t.string   "title"
     t.text     "resume"
     t.text     "description"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

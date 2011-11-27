@@ -1,6 +1,7 @@
 %h3= @project.title
 %p= @project.resume
 %p= @project.description
+%p= link_to @project.url
 - if admin?
   = link_to 'Edit', edit_project_path(@project)
   = link_to 'Delete', project_path(@project), :method => :delete, :confirm => 'Are you sure?'

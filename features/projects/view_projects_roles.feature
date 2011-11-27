@@ -1,6 +1,6 @@
 Feature: View Project's Roles
 	In order to know about what was perfomed on a project
-	As a potencial client
+	As a user
 	I want to view which roles is in a given project
 			
 	Scenario: View project roles on the projects page

@@ -1,6 +1,6 @@
 Feature: Deny role admin tasks from non-logged users
 	In order to restrict who can manage roles
-	As a site owner
+	As a site admin
 	I want deny role admin tasks if the user is not logged in
 	
 	Background:

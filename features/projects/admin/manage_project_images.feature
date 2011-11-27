@@ -1,6 +1,6 @@
 Feature: Manage Project Images
 	In order to show how the project looks to potencial clients
-	As a site owner
+	As a site admin
 	I want to insert one or more images into projects
 	
 	Background:

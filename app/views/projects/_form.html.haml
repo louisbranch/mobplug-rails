@@ -5,6 +5,8 @@
   = f.text_area :resume
   = f.label :description, 'Description'
   = f.text_area :description
+  = f.label :url, 'URL'
+  = f.text_field :url
   %field_set
     %legend Images
     = f.fields_for :assets do |asset|

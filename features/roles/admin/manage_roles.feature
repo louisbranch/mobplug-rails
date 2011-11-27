@@ -1,6 +1,6 @@
 Feature: Manage Roles
 	In order to arrange our previous projects into roles performed
-	As a site administrator
+	As a site admin
 	I want to create and manage roles
 	
 	Background:

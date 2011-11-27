@@ -1,6 +1,6 @@
 Feature: View Project's Categories
 	In order to know about the project platform and purpose
-	As a potencial client
+	As a user
 	I want to view which categories a given project has
 	
 	Scenario: View project categories on its page
