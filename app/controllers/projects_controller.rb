@@ -11,12 +11,14 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @categories = @project.categories
     @roles = @project.roles
+    @assets = @project.assets
   end
 
   def new
     @categories = Category.all
     @roles = Role.all
     @project = Project.new
+    4.times {@project.assets.build}
   end
   
   def create
@@ -34,6 +36,7 @@ class ProjectsController < ApplicationController
     @roles = Role.all
     @categories = Category.all
     @project = Project.find(params[:id])
+    4.times {@project.assets.build}
   end
   
   def update

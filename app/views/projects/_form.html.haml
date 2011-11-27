@@ -1,10 +1,19 @@
-= form_for @project do |f|
+= form_for @project, :html => { :multipart => true } do |f|
   = f.label :title, 'Title'
   = f.text_field :title
   = f.label :resume, 'Resume'
   = f.text_area :resume
   = f.label :description, 'Description'
   = f.text_area :description
+  %field_set
+    %legend Images
+    = f.fields_for :assets do |asset|
+      - if asset.object.new_record?
+        = asset.file_field :image
+      - else
+        = link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) )
+        = asset.check_box :_destroy
+        = asset.label :_destroy, 'Delete'
   %field_set
     %legend Categories
     - @categories.each do |category|

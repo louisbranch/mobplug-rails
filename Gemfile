@@ -14,6 +14,7 @@ gem 'execjs'
 gem 'haml'
 gem 'haml-rails'
 gem 'therubyracer'
+gem 'paperclip'
 
 group :development, :test do
   gem 'rspec-rails'

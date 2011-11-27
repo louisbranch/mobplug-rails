@@ -26,11 +26,22 @@ Given /^I have the following projects? and categories$/ do |table|
   end
 end
 
-Given /^I have the following projects and roles$/ do |table|
+Given /^I have the following projects? and roles$/ do |table|
   table.hashes.each do |hash|
     project = Factory.create(:project, :title => hash['project'])
     hash['roles'].split(",").each do |title|
       project.roles << Factory.create(:role, :title => title)
+    end
+  end
+end
+
+Given /^I have the following projects? and images:$/ do |table|
+  table.hashes.each do |hash|
+    project = Factory.create(:project, :title => hash['project'])
+    hash['images'].split(",").each do |image|
+      image.strip!
+      image_path = File.open(File.join(::Rails.root.to_s, 'features', 'test_images', image))
+      project.assets << Factory.create(:asset, :image => image_path)
     end
   end
 end
