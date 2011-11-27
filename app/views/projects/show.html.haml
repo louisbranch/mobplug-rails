@@ -12,4 +12,4 @@
     %li= role.title
 %ul
   - @assets.each do |asset|
-    %li= link_to(image_tag(asset.image.url(:thumb)), asset.image.url)
+    %li= link_to(image_tag(asset.image.url(:small)), asset.image.url)
