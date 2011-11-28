@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20111126191059) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20111126191059) do
     t.text     "resume"
     t.text     "description"
     t.string   "url"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

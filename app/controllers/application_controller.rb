@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :create_body_identifiers
   
   helper_method :admin?
   
@@ -12,6 +13,11 @@ class ApplicationController < ActionController::Base
     else
       flash[:error] = 'An error has occured!'
     end
+  end
+  
+  def create_body_identifiers
+    @body_class = params[:controller]
+    @body_id = params[:action]
   end
   
   def authorize

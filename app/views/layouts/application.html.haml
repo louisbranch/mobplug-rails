@@ -1,13 +1,16 @@
 !!!
 %html
   %head
-    %title Mobplug
+    %title= title
+    %meta{:name => 'description', :content => "#{@description}"}
+    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Ubuntu"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
-  %h1 Mobplug
-  %div.wrapper
-    = render :partial => 'shared/main_nav'
+  %body{:class => "#{@body_class}", :id => "#{@body_id}"}
+  %div#wrapper
+    %header
+      %h1= link_to 'Mobplug', root_path
+      = render :partial => 'shared/main_nav'
     = render :partial => 'shared/flash_messages'
     = yield

@@ -15,6 +15,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'therubyracer'
 gem 'paperclip'
+gem 'friendly_id', "~> 4.0.0.beta8"
 
 group :development, :test do
   gem 'rspec-rails'

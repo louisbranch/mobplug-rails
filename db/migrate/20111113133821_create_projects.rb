@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.text :resume
       t.text :description
       t.string :url
+      t.string :slug, :unique => true
 
       t.timestamps
     end

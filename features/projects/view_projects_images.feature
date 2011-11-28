@@ -14,10 +14,20 @@ Feature: View Projects Images
 	
 	Scenario: View images thumbs size on the projects page
 		Given I have the following project and images:
-			| project   | images          |
-			| MyCoupons | screenshot1.png |
-			| MyCoupons | screenshot2.png |
+			| project       | images          |
+			| MyCoupons     | screenshot1.png |
+			| FallingBlocks | screenshot2.png |
 	 	When I go to the projects page
+		Then I should see the images:
+			| Screenshot1 |
+			| Screenshot2 |
+	
+	Scenario: View images thumbs size on the home page
+		Given I have the following project and images:
+			| project       | images          |
+			| MyCoupons     | screenshot1.png |
+			| FallingBlocks | screenshot2.png |
+	 	When I go to the home page
 		Then I should see the images:
 			| Screenshot1 |
 			| Screenshot2 |

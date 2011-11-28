@@ -76,6 +76,7 @@ GEM
     faker (1.0.1)
       i18n (~> 0.4)
     ffi (1.0.10)
+    friendly_id (4.0.0.beta14)
     fuubar-cucumber (0.0.15)
       cucumber (>= 1.0.2)
       ruby-progressbar (~> 0.0.10)
@@ -210,6 +211,7 @@ DEPENDENCIES
   execjs
   factory_girl_rails
   faker
+  friendly_id (~> 4.0.0.beta8)
   fuubar-cucumber
   guard-cucumber
   guard-spork

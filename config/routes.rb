@@ -8,6 +8,7 @@ Mobplug::Application.routes.draw do
   
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
+  match "home" => "home#index"
   
   root :to => "home#index"
   

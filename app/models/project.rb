@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
   has_many :tags, :dependent => :destroy
   has_many :categories, :through => :tags
   has_many :rolerships, :dependent => :destroy
@@ -9,5 +11,7 @@ class Project < ActiveRecord::Base
   validates :title, :presence => true
   validates :resume, :presence => true
   validates_associated :assets
+  
+  default_scope order('created_at DESC')
   
 end

@@ -3,3 +3,8 @@
 %p 
   Do you have something for us to build?
   = link_to 'Get in touch!', contact_path
+%ul
+  - @projects.each do |project|
+    %li
+      = link_to(image_tag(project.assets.first.image.url(:thumb)), project_path(project)) unless project.assets.empty?
+      = link_to project.title, project_path(project)

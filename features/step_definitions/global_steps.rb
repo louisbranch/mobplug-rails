@@ -45,3 +45,9 @@ Then /^I should see:$/ do |table|
     page.should have_content item
   end
 end
+
+Then /^I should not see:$/ do |table|
+  table.raw.flatten.map do |item|
+    page.should have_no_content item
+  end
+end

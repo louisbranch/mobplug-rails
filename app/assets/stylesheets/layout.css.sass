@@ -1,0 +1,101 @@
+*
+  margin: 0
+  padding: 0
+
+body
+  font-family: Ubuntu,Helvetica,Arial,sans-serif
+  color: #444
+  background: #F3F3F3 url(asset_path("stripes.png", image)) repeat-x
+  font-size: 16px
+
+h1
+  margin-bottom: 20px
+
+h2
+  font-size: 30px
+  margin-bottom: 20px
+
+ul
+  list-style-type: none
+  li
+    display: inline
+    
+a
+  text-decoration: none
+  color: #5C69B1
+
+input,textarea
+  display: block
+  font-size: 16px
+  margin: 10px 0 5px
+  padding: 5px
+
+label
+  margin-top: 20px
+  display: block
+  
+#wrapper
+  margin: 0 auto
+  margin-top: 20px
+  margin-bottom: 20px
+  width: 1000px
+  padding: 20px
+  background: #FFF
+  border: 1px solid #CCC
+  -moz-box-shadow: 0 3px 4px #CCC
+  -webkit-box-shadow: 0 3px 4px #CCC
+  
+  #left_column
+    width: 640px
+    float: left
+    margin-right: 20px
+  #right_column
+    width: 300px
+    float: left
+    h3
+      border-bottom: 2px solid #ddd
+      padding-bottom: 5px
+
+header
+  position: relative
+  margin-top: 20px
+  margin-bottom: 50px
+  h1
+    width: 200px
+  nav#main
+    display: block
+    position: absolute
+    right: 0
+    top: 5px
+    a
+      margin: 0 10px
+      font-size: 20px
+      font-weight: bold
+      &:before
+        content: "/"
+      &#tab_active
+        color: #333
+  
+ul#flash_notice
+  background-color: #E3EBC6
+  border: 1px solid #C2D288
+  border-left: 10px solid #C2D288
+  color: #97AA4F
+  font-weight: bold
+  padding: 5px
+  width: 400px
+  margin: 10px 0
+  li
+    display: block
+
+ul#flash_error
+  background-color: #F4D0D2
+  border: 1px solid #F3AEB1
+  border-left: 10px solid #F3AEB1
+  color: #B2686B
+  font-weight: bold
+  padding: 5px
+  width: 400px
+  margin: 10px 0
+  li
+    display: block

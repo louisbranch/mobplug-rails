@@ -9,16 +9,16 @@ Feature: Navigation through tabs
 		
 		Examples:
 			| path          | tab      |
-			| home page     | Home     |
-			| projects page | Projects |
-			| contact page  | Contact  |
+			| home page     | home     |
+			| projects page | projects |
+			| contact page  | contact  |
 	
 	Scenario: Projects navigation
 		Given I have "1" project
 		When I go to this project page
-		Then I should see the tab "Projects" as active in the navigation bar
+		Then I should see the tab "projects" as active in the navigation bar
 	
 	Scenario: Categories navigation
 		Given I have "1" category
 		When I go to this category page
-		Then I should see the tab "Projects" as active in the navigation bar
+		Then I should see the tab "projects" as active in the navigation bar

@@ -4,6 +4,10 @@ Given /^I go to the home page$/ do
   visit root_path
 end
 
+Then /^the URI should be "([^"]*)"$/ do |uri|
+  assert current_path == uri
+end
+
 Then /^I should be redirected to the home page$/ do
   assert current_path == root_path
 end

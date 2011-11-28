@@ -6,4 +6,19 @@ module ApplicationHelper
     end
   end
   
+  def title
+    base_title = "mobplug"
+    if @title.nil?
+      base_title
+    else
+      "#{base_title} :: #{@title}"
+    end
+  end
+  
+  def description
+    unless @description.nil?
+      @description
+    end
+  end
+  
 end
