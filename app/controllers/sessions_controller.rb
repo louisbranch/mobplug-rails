@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
 	def create
-	  if params[:password] == 'foobar'
+	  ENV['PASSWORD'] ||= 'foobar'
+	  if params[:password] == ENV['PASSWORD']
 	    session[:password] = params[:password]
 	    flash[:notice] = "Welcome Back!"
 		  redirect_to root_path 
