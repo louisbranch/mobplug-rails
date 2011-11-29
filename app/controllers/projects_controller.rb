@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
     @categories = @project.categories
     @roles = @project.roles
     @assets = @project.assets
+    @title = @project.title
+    @description = @project.resume
   end
 
   def new
