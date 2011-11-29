@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   respond_to :html, :json, :xml
   
   def index
+    @title = 'All Luiz Branco\'s Projects'
     @categories = Category.all
     @projects = Project.all
   end

@@ -7,7 +7,7 @@ module ApplicationHelper
   end
   
   def title
-    base_title = "mobplug"
+    base_title = "luizbranco"
     if @title.nil?
       base_title
     else

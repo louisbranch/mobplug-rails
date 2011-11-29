@@ -2,6 +2,5 @@
 - if admin?
   = link_to 'Edit', edit_category_path(@category)
   = link_to 'Delete', category_path(@category), :method => :delete
-%ul
-  - @projects.each do |project|
-    %li= project.title
+%ul#project_list
+  = render @projects

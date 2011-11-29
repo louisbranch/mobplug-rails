@@ -3,6 +3,6 @@ class Asset < ActiveRecord::Base
   has_attached_file :image,
         :styles => {
         :thumb=> "100x100#",
-        :small  => "300x300>",
+        :small  => "260x200#",
         }
 end

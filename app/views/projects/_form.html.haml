@@ -16,12 +16,12 @@
         = link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) )
         = asset.check_box :_destroy
         = asset.label :_destroy, 'Delete'
-  %field_set
+  %field_set.categories
     %legend Categories
     - @categories.each do |category|
       = check_box_tag "category_#{category.id}", category.id, @project.categories.include?(category), :name => 'project[category_ids][]'
       = label_tag "category_#{category.id}", category.title
-  %field_set
+  %field_set.roles
     %legend Roles
     - @roles.each do |role|
       = check_box_tag "role_#{role.id}", role.id, @project.roles.include?(role), :name => 'project[role_ids][]'

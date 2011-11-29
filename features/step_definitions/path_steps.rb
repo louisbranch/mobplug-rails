@@ -120,6 +120,12 @@ Then /^I should be redirected to the edit role page$/ do
   assert current_path == edit_role_path(Role.first)
 end
 
+################################# About ####################################
+
+Given /^I go to the about page$/ do
+  visit "/about"
+end
+
 ################################ Contact ###################################
 
 Given /^I go to the contact page$/ do

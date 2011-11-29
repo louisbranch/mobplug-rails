@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'haml'
 gem 'haml-rails'
+gem 'bluecloth'
 gem 'therubyracer'
 gem 'paperclip'
 gem 'friendly_id', "~> 4.0.0.beta8"
@@ -29,8 +30,6 @@ group :development, :test do
   gem 'launchy'
   gem 'libnotify'
   gem 'rb-inotify'
-  gem 'capybara-webkit'
-  #em 'capybara-mechanize', "~> 0.3.0.rc2"
   gem 'fuubar-cucumber'
   gem 'faker'
 end

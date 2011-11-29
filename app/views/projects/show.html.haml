@@ -1,16 +1,26 @@
 %h2= @project.title
-%p= @project.resume
-%p= @project.description
-%p= link_to @project.url
 - if admin?
   = link_to 'Edit', edit_project_path(@project)
   = link_to 'Delete', project_path(@project), :method => :delete, :confirm => 'Are you sure?'
-%ul
-  - @categories.each do |category| 
-    %li= category.title
-%ul
-  - @roles.each do |role| 
-    %li= role.title
-%ul
-  - @assets.each do |asset|
-    %li= link_to(image_tag(asset.image.url(:small)), asset.image.url)
+- unless @project.assets.empty?
+  %div.slider-wrapper.theme-default
+    %div#slider.nivoSlider
+      - @assets.each do |asset|
+        =image_tag(asset.image.url)
+:markdown
+  #{@project.resume}
+  
+  #{@project.description}
+%p= link_to 'Visit the Project', @project.url
+- unless @project.categories.empty?
+  %ul#project_categories
+    %li
+      %strong Categories:
+    - @categories.each do |category| 
+      %li= category.title
+- unless @project.roles.empty?
+  %ul#project_roles
+    %li
+      %strong Roles:
+    - @roles.each do |role| 
+      %li= role.title

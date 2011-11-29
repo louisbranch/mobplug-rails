@@ -8,9 +8,15 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body{:class => "#{@body_class}", :id => "#{@body_id}"}
+  %div#clouds
   %div#wrapper
     %header
-      %h1= link_to 'Mobplug', root_path
+      %h1= link_to 'luizbranco', root_path
       = render :partial => 'shared/main_nav'
     = render :partial => 'shared/flash_messages'
     = yield
+  %footer
+    %div#scenario
+      =image_tag(asset_path("me.gif"), :title => "It's me, Luiz!") 
+    %div#ground
+    

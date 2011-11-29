@@ -27,3 +27,13 @@ Given /^this category has the following projects:$/ do |table|
   end
 end
 
+When /^I view all the categories$/ do
+  @categories = Category.all
+end
+
+Then /^the categories should be ordered as:$/ do |table|
+  table.rows_hash.each do |index, title|
+    @categories[index.to_i - 1].title.should == title
+  end
+end
+

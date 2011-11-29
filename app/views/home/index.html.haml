@@ -1,10 +1,13 @@
-%h2 Simple products, powerful solutions!
-%p We're a small company focused on create high-quality mobile sites, applications and games. We believe that simplicity is powerful and we strive to make our products as easy-to-use as possible.
-%p 
-  Do you have something for us to build?
-  = link_to 'Get in touch!', contact_path
-%ul
-  - @projects.each do |project|
-    %li
-      = link_to(image_tag(project.assets.first.image.url(:thumb)), project_path(project)) unless project.assets.empty?
-      = link_to project.title, project_path(project)
+%hgroup
+  :markdown
+    ##I'm a **Product Manager** and **Rails Developer**
+    ##with a passion for **powerfully simple products**
+%div#recent_projects
+  %h3 Recent Projects
+  %ul#recent_projects
+    - @projects.each do |project|
+      %li
+        = link_to(image_tag(project.assets.first.image.url(:small), :title => project.title), project_path(project)) unless project.assets.empty?
+        = link_to project.title, project_path(project)
+  %div#more_projects
+    =link_to 'View all Projects', projects_path, :class => "button"

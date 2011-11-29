@@ -11,6 +11,7 @@ Feature: Navigation through tabs
 			| path          | tab      |
 			| home page     | home     |
 			| projects page | projects |
+			| about page    | about    |
 			| contact page  | contact  |
 	
 	Scenario: Projects navigation

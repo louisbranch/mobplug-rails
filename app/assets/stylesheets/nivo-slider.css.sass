@@ -1,0 +1,62 @@
+.theme-default
+  .nivoSlider 
+    position: relative
+    background: #fff url(asset_path("loading.gif", image)) no-repeat 50% 50%
+    margin-bottom: 50px
+    -webkit-box-shadow:  0px 1px 5px 0px #4a4a4a
+    -moz-box-shadow:  0px 1px 5px 0px #4a4a4a
+    box-shadow:  0px 1px 5px 0px #4a4a4a
+    img 
+      position: absolute
+      top: 0px
+      left: 0px
+      display: none
+      width: 850px
+      height: 400px
+    a 
+      border: 0
+      display: block
+      
+  .nivo-controlNav 
+    position: absolute
+    left: 50%
+    bottom: -42px
+    margin-left: -40px
+    a 
+      display: block
+      width: 22px
+      height: 22px
+      background: url(asset_path("bullets.png", image)) no-repeat
+      text-indent: -9999px
+      border: 0
+      margin-right: 3px
+      float: left
+      cursor: pointer
+      &.active 
+        background-position: 0 -22px
+        
+  .nivo-directionNav
+    position: absolute
+    width: 100%
+    top: 45%
+    z-index: 9
+    cursor: pointer
+    display: block
+    a 
+      display: block
+      width: 30px
+      height: 30px
+      background: url(asset_path("arrows.png", image)) no-repeat
+      text-indent: -9999px
+      border: 0
+  .nivo-slice
+    background: #000
+    
+  a.nivo-nextNav
+    position: absolute
+    background-position: -30px 0
+    right: 15px
+
+  a.nivo-prevNav
+    position: absolute
+    left: 15px

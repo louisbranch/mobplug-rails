@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   
   def show
+    @title = 'Get in touch!'
     @contact = Contact.new
   end
   

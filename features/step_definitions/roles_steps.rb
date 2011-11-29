@@ -20,3 +20,16 @@ end
 Given /^a role "([^"]*)" exists$/ do |title|
   @role = Factory.create(:role, :title => title)
 end
+
+When /^I view all the roles$/ do
+  @roles = Role.all
+end
+
+Then /^the roles should be ordered as:$/ do |table|
+  table.rows_hash.each do |index, title|
+    @roles[index.to_i - 1].title.should == title
+  end
+end
+
+
+

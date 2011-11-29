@@ -33,6 +33,7 @@ GEM
     addressable (2.2.6)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
+    bluecloth (2.2.0)
     builder (3.0.0)
     capybara (1.1.1)
       mime-types (>= 1.16)
@@ -41,8 +42,6 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    capybara-webkit (0.7.2)
-      capybara (>= 1.0.0, < 1.2)
     childprocess (0.2.2)
       ffi (~> 1.0.6)
     cocaine (0.2.0)
@@ -203,8 +202,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bluecloth
   capybara
-  capybara-webkit
   coffee-rails (~> 3.1.0)
   cucumber-rails
   database_cleaner

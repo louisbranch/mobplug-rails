@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @title = "Transforming passion into applications"
+    @title = "Product Manager and Rails Developer"
     @projects = Project.limit(3)
   end
 
