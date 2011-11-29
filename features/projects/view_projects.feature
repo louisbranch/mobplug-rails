@@ -21,4 +21,4 @@ Feature: View Projects
 		When I click on "MyCoupons.com"
 		Then I should be redirected to this project page
 		And I should see:
-			|	MyCoupons.com	|	Don't lose track of your coupons | The best site	| http://luizbranco.com |
+			|	MyCoupons.com	|	Don't lose track of your coupons | The best site	| Visit the Project |

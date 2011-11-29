@@ -21,7 +21,3 @@ Then /^I should not see the images?:$/ do |table|
     page.should have_no_css("img[alt=#{image_alt}]")
   end
 end
-
-Then /^I should be see the fullsize "([^"]*)" image on the browser$/ do |image|
-  current_path.should == "/system/images/1/original/#{image}"
-end
