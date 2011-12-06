@@ -44,8 +44,7 @@ class ProjectsController < ApplicationController
   
   def update
     @project = Project.find(params[:id])
-    @project.update_attributes(params[:project])
-    if @project.save
+    if @project.update_attributes(params[:project])
       flash[:notice] = 'Project Updated!'
       respond_with(@project, :location => project_path(@project))
     else

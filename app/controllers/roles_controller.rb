@@ -26,8 +26,7 @@ class RolesController < ApplicationController
   
   def update
     @role = Role.find(params[:id])
-    @role.update_attributes(params[:role])
-    if @role.save
+    if @role.update_attributes(params[:role])
       flash[:notice] = 'Role Updated!'
       redirect_to roles_path
     else
