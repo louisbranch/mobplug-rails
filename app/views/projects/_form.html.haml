@@ -1,4 +1,5 @@
-= form_for @project, :html => { :multipart => true } do |f|
+= error_messages_for(project)
+= form_for project, :html => { :multipart => true } do |f|
   = f.label :title, 'Title'
   = f.text_field :title
   = f.label :resume, 'Resume'
@@ -18,12 +19,12 @@
         = asset.label :_destroy, 'Delete Image'
   %field_set.categories
     %legend Categories
-    - @categories.each do |category|
-      = check_box_tag "category_#{category.id}", category.id, @project.categories.include?(category), :name => 'project[category_ids][]'
+    - categories.each do |category|
+      = check_box_tag "category_#{category.id}", category.id, project.categories.include?(category), :name => 'project[category_ids][]'
       = label_tag "category_#{category.id}", category.title
   %field_set.roles
     %legend Roles
-    - @roles.each do |role|
-      = check_box_tag "role_#{role.id}", role.id, @project.roles.include?(role), :name => 'project[role_ids][]'
+    - roles.each do |role|
+      = check_box_tag "role_#{role.id}", role.id, project.roles.include?(role), :name => 'project[role_ids][]'
       = label_tag "role_#{role.id}", role.title
   = f.submit

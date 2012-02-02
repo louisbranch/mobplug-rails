@@ -3,4 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/
 coverage/
+public/system/
 .sass-cache/

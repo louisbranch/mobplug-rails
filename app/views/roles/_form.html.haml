@@ -1,4 +1,5 @@
-= form_for @role do |f|
+= error_messages_for(role)
+= form_for role do |f|
   =f.label :title, 'Title'
   =f.text_field :title
   =f.submit
