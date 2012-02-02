@@ -1,35 +1,52 @@
-Given /^I have "([^"]*)" role$/ do |number|
-  number = number.to_i
-  number.times do
-    Factory(:role)
-  end
-  Role.count.should == number
+Given /^I have a role$/ do
+  @role = FactoryGirl.create(:role)
 end
 
-Given /^I should have "([^"]*)" (?:role|roles)$/ do |number|
-  number = number.to_i
-  Role.count.should == number
+Given /^I have multiple roles$/ do
+  FactoryGirl.create(:role, :title => 'Developer')
+  FactoryGirl.create(:role, :title => 'Designer')
 end
 
-Given /^the following (?:role|roles)?:$/ do |table|
-  table.hashes.each do |hash|
-    Factory.create(:role, hash)
-  end
+When /^I create a new role$/ do
+  visit roles_path
+  click_on 'New Role'
+  fill_in 'Title', :with => 'Developer'
+  click_on 'Create Role'
 end
 
-Given /^a role "([^"]*)" exists$/ do |title|
-  @role = Factory.create(:role, :title => title)
+When /^I update this role$/ do
+  visit roles_path
+  click_on 'Edit'
+  fill_in 'Title', :with => 'Designer'
+  click_on 'Update Role'
 end
 
-When /^I view all the roles$/ do
-  @roles = Role.all
+When /^I delete this role$/ do
+  visit roles_path
+  click_on 'Delete'
 end
 
-Then /^the roles should be ordered as:$/ do |table|
-  table.rows_hash.each do |index, title|
-    @roles[index.to_i - 1].title.should == title
-  end
+When /^I add these roles to this project$/ do
+  visit edit_project_path(@project)
+  check 'Developer'
+  check 'Designer'
+  click_on 'Update Project'
 end
 
+Then /^I should see a new role listed$/ do
+  page.should have_content 'A new role was created!'
+  page.should have_content 'Developer'
+end
 
+Then /^this role should have been updated$/ do
+  page.should have_content 'Your role was updated!'
+end
 
+Then /^I should no longer see this role listed$/ do
+  page.should have_content 'Your role was deleted!'
+end
+
+Then /^I should see these roles listes for this project$/ do
+  page.should have_content 'Developer'
+  page.should have_content 'Designer'
+end

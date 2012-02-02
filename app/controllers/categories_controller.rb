@@ -1,54 +1,46 @@
 class CategoriesController < ApplicationController
   before_filter :authorize, :except => [:index, :show]
-  
+
   def index
     @categories = Category.all
   end
-  
+
   def show
     @category = Category.find(params[:id])
     @projects = @category.projects
   end
-  
+
   def new
     @category = Category.new
   end
-  
+
   def create
     @category = Category.new(params[:category])
     if @category.save
-      flash[:notice] = 'Category Created!'
-      redirect_to category_path(@category)
+      redirect_to category_path(@category), :notice => 'A new category was created!'
     else
-      show_errors(@category)
-      redirect_to new_category_path
-    end 
+      render :new
+    end
   end
-  
+
   def edit
     @category = Category.find(params[:id])
   end
-  
+
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(params[:category])
-      flash[:notice] = 'Category Updated!'
-      redirect_to category_path(@category)
+      redirect_to category_path(@category), :notice => 'Your category was updated!'
     else
-      show_errors(@category)
-      redirect_to edit_category_path
+      render :edit
     end
   end
-  
+
   def destroy
     @category = Category.find(params[:id])
     if @category.destroy
-      flash[:notice] = 'Category Deleted!'
-      redirect_to categories_path
-    else
-      show_errors(@category)
-      redirect_to category_path(@category)
+      redirect_to categories_path, :notice => 'Your category was deleted!'
     end
   end
-  
+
 end

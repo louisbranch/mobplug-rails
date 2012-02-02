@@ -1,24 +1,20 @@
 Feature: View Projects
 	In order to know about previous projects
-	As a user
+	As a potencial client
 	I want to view all projects and their information
-	
-	Scenario: View the projects list
-		Given the following projects:
-			|	title					| resume                    |
-			|	MyCoupons.com	|	Enjoy your online coupons |
-			|	FallingBlocks	| Play this addictive game  |
-		When I go to the projects page
-		Then I should see:
-			|	MyCoupons.com	|	Enjoy your online coupons |
-			|	FallingBlocks	| Play this addictive game  |
-	
-	Scenario: View a project information
-		Given the following project:
-			|	title					| resume                           |	description		| url                   |
-			|	MyCoupons.com	|	Don't lose track of your coupons | The best site	| http://luizbranco.com |
-		And I am on the projects page
-		When I click on "MyCoupons.com"
-		Then I should be redirected to this project page
-		And I should see:
-			|	MyCoupons.com	|	Don't lose track of your coupons | The best site	| Visit the Project |
+
+	Scenario: View projects
+	  Given I have a project
+	  When I go to the projects list
+	  Then I should see this project listed
+
+	Scenario: View projects of a category
+	  Given I have a project
+	  And this project has a category
+	  When I go to this category page
+	  Then I should see this project listed
+
+  Scenario: View most recent project
+    Given I have multiple projects
+    When I go to the home page
+    Then I should only see the most recent ones

@@ -1,23 +1,25 @@
-Given /^I attach the (\d+).* image field with "([^"]*)"$/ do |number, image|
-  number = number.to_i - 1  
-  field = "project_assets_attributes_#{number}_image"
-  file = File.join(::Rails.root.to_s, 'features', 'test_images', image)
-  attach_file field, file
+Given /^a project has an image$/ do
+  @project.assets << FactoryGirl.create(:asset)
 end
 
-Given /^I check "([^"]*)" for the (\d+).* image$/ do |text, number|
-  number = number.to_i - 1
-  check "project_assets_attributes_#{number}__destroy"
+When /^I add images to a project$/ do
+  visit edit_project_path(@project)
+  attach_file "project_assets_attributes_0_image", File.join(::Rails.root.to_s, 'features', 'test_images', 'screenshot1.png')
+  attach_file "project_assets_attributes_1_image", File.join(::Rails.root.to_s, 'features', 'test_images', 'screenshot2.png')
+  click_on 'Update Project'
 end
 
-Then /^I should see the images?:$/ do |table|
-  table.raw.flatten.map do |image_alt|
-    page.should have_css("img[alt=#{image_alt}]")
-  end
+When /^I delete this image$/ do
+  visit edit_project_path(@project)
+  check 'Delete Image'
+  click_on 'Update Project'
 end
 
-Then /^I should not see the images?:$/ do |table|
-  table.raw.flatten.map do |image_alt|
-    page.should have_no_css("img[alt=#{image_alt}]")
-  end
+Then /^I should see these images on this project$/ do
+  page.should have_css("img[alt=Screenshot1]")
+  page.should have_css("img[alt=Screenshot2]")
+end
+
+Then /^I should no longer see this image on this project$/ do
+  page.should_not have_css("img[alt=Screenshot1]")
 end

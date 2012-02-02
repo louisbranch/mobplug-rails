@@ -4,18 +4,15 @@ class SessionsController < ApplicationController
 	  ENV['PASSWORD'] ||= 'foobar'
 	  if params[:password] == ENV['PASSWORD']
 	    session[:password] = params[:password]
-	    flash[:notice] = "Welcome Back!"
-		  redirect_to root_path 
+		  redirect_to root_path, :notice => 'Welcome Back!'
 	  else
-	    flash[:error] = "Invalid Password!"
-		  redirect_to login_path 
+		  redirect_to login_path, :alert => 'Invalid Password!'
 	  end
 	end
 
 	def destroy
 		reset_session
-		flash[:notice] = "See you later!"
-		redirect_to root_path
+		redirect_to root_path, :notice => 'See you later!'
 	end
 
 end

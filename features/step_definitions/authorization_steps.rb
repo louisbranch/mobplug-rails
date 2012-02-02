@@ -2,11 +2,23 @@ Given /^I am not logged in$/ do
 end
 
 Given /^I am logged in$/ do
-  steps %{
-    Given I go to the login page
-		And I fill in "Password" with "foobar"
-		When I click on "Login"
-		Then I should be redirected to the home page
-		And I should see "Welcome Back!"
-  }
+  steps %{When I log in}
+end
+
+When /^I log in$/ do
+  visit login_path
+  fill_in 'Password', :with => 'foobar'
+  click_on 'Login'
+end
+
+When /^I log out$/ do
+  visit logout_path
+end
+
+Then /^I should be logged as an admin$/ do
+  page.should have_content 'Welcome Back!'
+end
+
+Then /^I should no longer be an admin$/ do
+  page.should have_content 'See you later!'
 end
