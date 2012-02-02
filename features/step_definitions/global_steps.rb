@@ -20,7 +20,7 @@ end
 
 Given /^I fill in "([^"]*)" with more than "([^"]*)" caracters$/ do |field, number|
   number = number.to_i + 1
-  sentence = Faker::Lorem.sentence(caracter_count = number)
+  sentence = 'a' * number
   fill_in field, :with => sentence
 end
 

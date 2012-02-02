@@ -1,40 +1,44 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.1.0'
-gem 'sqlite3'
-gem 'sass-rails', "  ~> 3.1.0"
+gem 'rails', '3.2.0'
 
 group :assets do
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'sass-rails', "  ~> 3.2.3"
 gem 'jquery-rails'
-gem 'execjs'
 gem 'haml'
 gem 'haml-rails'
-gem 'bluecloth'
-gem 'therubyracer'
-gem 'paperclip'
-gem 'friendly_id', "~> 4.0.0.beta8"
+gem 'coffeebeans'
+gem 'rdiscount'
+gem 'paperclip', '~> 2.0'
+gem 'aws-sdk'
+gem 'friendly_id'
+gem 'will_paginate', '~> 3.0'
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'sqlite3'
+  gem 'execjs'
+  gem 'therubyracer'
+  gem 'rspec-rails', '~> 2.8.1'
+  gem 'shoulda-matchers'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'spork', '> 0.9.0.rc'
+  gem 'spork', '~> 1.0rc'
   gem 'guard-spork'
+  gem 'guard-rspec'
   gem 'guard-cucumber'
   gem 'capybara'
   gem 'launchy'
   gem 'libnotify'
   gem 'rb-inotify'
   gem 'fuubar-cucumber'
-  gem 'faker'
+  gem 'simplecov'
 end
 
 group :production do
-  gem 'therubyracer-heroku'
   gem 'pg'
 end
