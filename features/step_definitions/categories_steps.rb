@@ -3,21 +3,21 @@ Given /^I have a category$/ do
 end
 
 Given /^I have multiple categories$/ do
-  FactoryGirl.create(:category, :title => 'WebApp')
-  FactoryGirl.create(:category, :title => 'Mobile App')
+  FactoryGirl.create(:category, :name => 'WebApp')
+  FactoryGirl.create(:category, :name => 'Mobile App')
 end
 
 When /^I create a new category$/ do
   visit categories_path
   click_on 'New Category'
-  fill_in 'Title', :with => 'WebApp'
+  fill_in 'Name', :with => 'WebApp'
   click_on 'Create Category'
 end
 
 When /^I edit this category information$/ do
   visit category_path(@category)
   click_on 'Edit'
-  fill_in 'Title', :with => 'Mobile App'
+  fill_in 'Name', :with => 'Mobile App'
   click_on 'Update Category'
 end
 

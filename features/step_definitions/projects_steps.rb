@@ -4,7 +4,7 @@ end
 
 Given /^I have multiple projects$/ do
   1.upto(4) do |n|
-    FactoryGirl.create(:project, :title => "Project #{n}")
+    FactoryGirl.create(:project, :name => "Project #{n}")
   end
 end
 
@@ -16,15 +16,15 @@ end
 When /^I create a new project$/ do
   visit projects_path
   click_on 'New Project'
-  fill_in 'Title', :with => 'MyCoupoms.com'
-  fill_in 'Resume', :with => 'A simple way to track your online coupoms.'
+  fill_in 'Name', :with => 'MyCoupoms.com'
+  fill_in 'Description', :with => 'A simple way to track your online coupoms.'
   click_on 'Create Project'
 end
 
 When /^I edit this project information$/ do
   visit project_path(@project)
   click_on 'Edit'
-  fill_in 'Title', :with => 'ForgetfulChef'
+  fill_in 'Name', :with => 'ForgetfulChef'
   click_on 'Update Project'
 end
 
@@ -35,7 +35,7 @@ end
 
 When /^I go to this category page$/ do
   visit projects_path
-  click_on @category.title
+  click_on @category.name
 end
 
 When /^I go to the home page$/ do
@@ -61,7 +61,7 @@ When /^I go to the projects list$/ do
 end
 
 Then /^I should see this project listed$/ do
-  page.should have_content @project.title
+  page.should have_content @project.name
 end
 
 Then /^I should only see the most recent ones$/ do

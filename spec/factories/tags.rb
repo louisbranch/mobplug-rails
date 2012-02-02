@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :tag do
-    category_id 1
-    project_id 1
+    associtation :project
+    associtation :category
   end
 end

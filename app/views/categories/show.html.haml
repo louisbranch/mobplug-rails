@@ -1,4 +1,4 @@
-%h2= @category.title
+%h2= @category.name
 - if admin?
   = link_to 'Edit', edit_category_path(@category)
   = link_to 'Delete', category_path(@category), :method => :delete

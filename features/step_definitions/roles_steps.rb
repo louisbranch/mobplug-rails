@@ -3,21 +3,21 @@ Given /^I have a role$/ do
 end
 
 Given /^I have multiple roles$/ do
-  FactoryGirl.create(:role, :title => 'Developer')
-  FactoryGirl.create(:role, :title => 'Designer')
+  FactoryGirl.create(:role, :name => 'Developer')
+  FactoryGirl.create(:role, :name => 'Designer')
 end
 
 When /^I create a new role$/ do
   visit roles_path
   click_on 'New Role'
-  fill_in 'Title', :with => 'Developer'
+  fill_in 'Name', :with => 'Developer'
   click_on 'Create Role'
 end
 
 When /^I update this role$/ do
   visit roles_path
   click_on 'Edit'
-  fill_in 'Title', :with => 'Designer'
+  fill_in 'Name', :with => 'Designer'
   click_on 'Update Role'
 end
 

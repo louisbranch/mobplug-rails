@@ -1,10 +1,11 @@
 class CreateRolerships < ActiveRecord::Migration
   def change
     create_table :rolerships do |t|
-      t.integer :role_id
-      t.integer :project_id
-
+      t.references :role
+      t.references :project
       t.timestamps
     end
+    add_index :rolerships, :role_id
+    add_index :rolerships, :project_id
   end
 end

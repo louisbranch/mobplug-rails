@@ -1,8 +1,7 @@
-%h2= @project.title
+%h2= @project.name
 - if admin?
   = link_to 'Edit', edit_project_path(@project)
   = link_to 'Delete', project_path(@project), :method => :delete, :confirm => 'Are you sure?'
-%p= @project.resume
 - unless @project.assets.empty?
   %div.slider-wrapper.theme-default
     %div#slider.nivoSlider
@@ -14,13 +13,13 @@
   %ul#project_categories
     %li
       %strong Categories:
-    - @categories.each do |category| 
-      %li= category.title
+    - @categories.each do |category|
+      %li= category.name
 - unless @project.roles.empty?
   %ul#project_roles
     %li
       %strong Roles:
-    - @roles.each do |role| 
-      %li= role.title
+    - @roles.each do |role|
+      %li= role.name
 %div#view_project
   =link_to 'Visit the Project', @project.url, :class => 'button'

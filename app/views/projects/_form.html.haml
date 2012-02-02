@@ -1,12 +1,10 @@
 = error_messages_for(project)
 = form_for project, :html => { :multipart => true } do |f|
-  = f.label :title, 'Title'
-  = f.text_field :title
-  = f.label :resume, 'Resume'
-  = f.text_area :resume
-  = f.label :description, 'Description'
+  = f.label :name
+  = f.text_field :name
+  = f.label :description
   = f.text_area :description
-  = f.label :url, 'URL'
+  = f.label :url
   = f.text_field :url
   %fieldset
     %legend Images
@@ -21,10 +19,10 @@
     %legend Categories
     - categories.each do |category|
       = check_box_tag "category_#{category.id}", category.id, project.categories.include?(category), :name => 'project[category_ids][]'
-      = label_tag "category_#{category.id}", category.title
+      = label_tag "category_#{category.id}", category.name
   %field_set.roles
     %legend Roles
     - roles.each do |role|
       = check_box_tag "role_#{role.id}", role.id, project.roles.include?(role), :name => 'project[role_ids][]'
-      = label_tag "role_#{role.id}", role.title
+      = label_tag "role_#{role.id}", role.name
   = f.submit

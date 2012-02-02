@@ -11,29 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126191059) do
+ActiveRecord::Schema.define(:version => 20111126191015) do
 
   create_table "assets", :force => true do |t|
     t.integer  "project_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
+  add_index "assets", ["project_id"], :name => "index_assets_on_project_id"
+
   create_table "categories", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
     t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "title"
-    t.text     "resume"
+    t.string   "name"
     t.text     "description"
+    t.date     "launch"
     t.string   "url"
     t.string   "slug"
     t.datetime "created_at",  :null => false
@@ -47,8 +49,11 @@ ActiveRecord::Schema.define(:version => 20111126191059) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "rolerships", ["project_id"], :name => "index_rolerships_on_project_id"
+  add_index "rolerships", ["role_id"], :name => "index_rolerships_on_role_id"
+
   create_table "roles", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -59,5 +64,8 @@ ActiveRecord::Schema.define(:version => 20111126191059) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "tags", ["category_id"], :name => "index_tags_on_category_id"
+  add_index "tags", ["project_id"], :name => "index_tags_on_project_id"
 
 end

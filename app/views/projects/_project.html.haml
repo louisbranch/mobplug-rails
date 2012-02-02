@@ -1,17 +1,17 @@
 %li{"data-categories" => list_categories(project)}
   = link_to(image_tag(project.assets.first.image.url(:thumb)), project_path(project)) unless project.assets.empty?
   %div
-    %h4= link_to project.title, project_path(project)
-    %p= project.resume
+    %h4= link_to project.name, project_path(project)
+    %p= project.description
     - unless project.categories.empty?
       %ul.project_categories
         %li
           %strong Categories:
         - project.categories.each do |category|
-          %li= category.title
+          %li= category.name
     - unless project.roles.empty?
       %ul.project_roles
         %li
           %strong Roles:
         - project.roles.each do |role|
-          %li= role.title
+          %li= role.name

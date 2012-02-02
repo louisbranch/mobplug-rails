@@ -3,6 +3,6 @@
 %ul
   - @roles.each do |role|
     %li
-      = role.title
+      = role.name
       = link_to 'Edit', edit_role_path(role)
       = link_to 'Delete', role_path(role), :method => :delete, :confirm => 'Are you sure?'

@@ -1,5 +1,5 @@
 module CategoriesHelper
-  
+
   def list_categories(project)
     unless project.categories.empty?
       list = []
@@ -9,9 +9,9 @@ module CategoriesHelper
       list.join(" ")
     end
   end
-  
+
   def normalize_name(category)
-    category = category.title.downcase.gsub(" ","_")
+    category = category.name.downcase.gsub(" ","_")
   end
-  
+
 end

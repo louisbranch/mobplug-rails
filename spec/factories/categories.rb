@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :category do
-    title "Web App"
+    name "Web App"
   end
 end
