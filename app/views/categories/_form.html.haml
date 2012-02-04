@@ -1,5 +1,6 @@
 = error_messages_for(category)
-= form_for category do |f|
-  =f.label :name
-  =f.text_field :name
-  =f.submit
+= form_for category, :html => {:class => "form-inline"} do |f|
+  %div.control-group
+    =f.label :name
+    =f.text_field :name, :autofocus => true
+    =f.submit :class => 'btn btn-success'

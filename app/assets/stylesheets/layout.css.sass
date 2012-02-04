@@ -1,154 +1,72 @@
-*
-  margin: 0
-  padding: 0
-
-html
-  background: #D3E1F6 url(asset_path("gradient.png", image)) repeat-x left top
-
 body
-  background: url(asset_path("mounts.png", image)) no-repeat left bottom
-  font-family: Ubuntu,Helvetica,Arial,sans-serif
-  color: #2b2b2b
-  font-size: 100%
-
-h1
-  font-size: 300%
-  font-weight: normal
-  margin-bottom: 0.8em
+  font-size: 16px
+  background-color: #f9f9f9
 
 h2
-  font-size: 200%
-  margin-bottom: 0.8em
-
-ul
-  list-style-type: none
-    
-a
-  text-decoration: none
-  color: #5C69B1
-
-input,textarea
-  display: block
-  font-size: 16px
-  margin: 10px 0 5px
-  padding: 5px
-
-label
-  margin-top: 20px
-  display: block
-  
-#wrapper
-  margin: 0 auto
-  margin-top: 20px
-  margin-bottom: 20px
-  width: 850px
-  padding: 20px
-  background: #FFF
-  border: 1px solid #CCC
-  -moz-box-shadow: 0 3px 4px #CCC
-  -webkit-box-shadow: 0 3px 4px #CCC
-  overflow: auto
-  #left_column
-    width: 580px
-    float: left
-    margin-right: 20px
-  #right_column
-    width: 250px
-    float: left
-    h3
-      border-bottom: 2px solid #ddd
-      padding-bottom: 5px
+  margin-top: 10px
+  margin-bottom: 10px
 
 header
-  position: relative
-  margin-bottom: 50px
-  h1
-    width: 200px
-  nav#main
-    display: block
-    position: absolute
-    right: 0
-    top: 15px
-    a
-      margin: 0 10px
-      font-size: 20px
-      font-weight: bold
-      &:before
-        content: "/"
-      &#tab_active
-        color: #333
+  margin-top: 20px
+  height: 36px
+  padding: 10px 0
+  background-color: #eeeeee /* Old browsers */
+  background-repeat: repeat-x /* Repeat the gradient */
+  background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%) /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#eeeeee)) /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%) /* Chrome 10+,Safari 5.1+ */
+  background-image: -ms-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%) /* IE10+ */
+  background-image: -o-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%) /* Opera 11.10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#eeeeee',GradientType=0 ) /* IE6-9 */
+  background-image: linear-gradient(top, #f5f5f5 0%,#eeeeee 100%) /* W3C */
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+  &.row
+    border: 1px solid #e5e5e5
+  .nav-pills
+    li
+      a
+        border: 1px solid transparent
+        &:hover
+          background-color: #fff
+          border: 1px solid #e5e5e5
+    li.active a:hover
+      border: 1px solid transparent
 
-div#clouds
-  background: url(asset_path("clouds.png", image)) repeat 20% 20%
-  background-position: 0px 0px
-  height: 100px
-  overflow: auto
-  z-index: 200
+.row
+  margin-left: 0
 
-footer
-  clear: both
+.center
   text-align: center
-  padding-top: 185px
-  background: url(asset_path("mountains.png", image)) no-repeat center top
-  div#scenario
-    padding-top: 100px
-    background: url(asset_path("scenario.png", image)) repeat-x left bottom
-    img
-      margin-bottom: -5px
-  div#ground
-    padding-bottom: 47px
-    background: url(asset_path("ground.png", image)) repeat-x left bottom
 
-ul#flash_notice
-  background-color: #E3EBC6
-  border: 1px solid #C2D288
-  border-left: 10px solid #C2D288
-  color: #97AA4F
-  font-weight: bold
-  padding: 5px
-  width: 400px
+.introduction
+  text-align: center
+  margin-top: 30px
+  margin-bottom: 30px
+  .well
+    border: 1px solid #e5e5e5
+    background-color: #fff
+    h2
+      font-weight: normal
+      font-size: 20px
+      text-shadow: 0 1px 0 rgba(255,255,255,1)
+      strong
+        font-size: 26px
+
+hr.soften
+  height: 1px
+  margin: 20px 0
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0))
+  background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0))
+  background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0))
+  background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0))
+  border: 0
+
+.alert
+  margin-top: 20px
+
+.thumbnails > li > a.span2
+  margin-left: 0
+.thumbnails > li > .span5 > h4
   margin: 10px 0
-  li
-    display: block
-
-ul#flash_error
-  background-color: #F4D0D2
-  border: 1px solid #F3AEB1
-  border-left: 10px solid #F3AEB1
-  color: #B2686B
-  font-weight: bold
-  padding: 5px
-  width: 400px
-  margin: 10px 0
-  li
-    display: block
-
-a.button, input.button 
-  cursor: pointer
-  color: #6e6e6e
-  font-weight: bold
-  text-decoration: none
-  padding: 7px 12px
-  position: relative
-  display: inline-block
-  text-shadow: 0 1px 0 #fff
-  -webkit-transition: border-color .218s
-  -moz-transition: border .218s
-  -o-transition: border-color .218s
-  transition: border-color .218s
-  background: #f3f3f3
-  border: solid 1px #dcdcdc
-  border-radius: 2px
-  -webkit-border-radius: 2px
-  -moz-border-radius: 2px
-  margin-right: 10px
-  &:hover 
-    color: #333
-    border-color: #999
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2)
-    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15)
-  &:active 
-    color: #000
-    border-color: #444
-	

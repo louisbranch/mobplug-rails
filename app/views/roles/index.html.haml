@@ -1,8 +1,15 @@
 %h2 Roles
-= link_to 'New Role', new_role_path
-%ul
+= link_to new_role_path, :class => 'btn btn-success' do
+  %i.icon-plus.icon-white
+  New Role
+%hr.soften
+%ul.unstyled
   - @roles.each do |role|
     %li
       = role.name
-      = link_to 'Edit', edit_role_path(role)
-      = link_to 'Delete', role_path(role), :method => :delete, :confirm => 'Are you sure?'
+      = link_to edit_role_path(role), :class => 'btn' do
+        %i.icon-pencil
+        Edit
+      = link_to role_path(role), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger' do
+        %i.icon-trash.icon-white
+        Delete

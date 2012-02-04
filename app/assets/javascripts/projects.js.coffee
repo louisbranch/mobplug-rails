@@ -1,12 +1,12 @@
 $ categoryFilter = ->
   if $('#category_menu').length
-    for category in $("#category_menu > li > a")
+    for category in $("#category_menu > li")
       $(category).click ->
         name = $(this).data('category')
         filterProjects(name)
         toggleCategory(this)
         false
-        
+
 filterProjects = (category) ->
   for item in $("#project_list > li")
     if category == 'all'
@@ -18,11 +18,5 @@ filterProjects = (category) ->
         $(item).hide()
 
 toggleCategory = (category) ->
-  $(".category_active").toggleClass("category_active")
-  $(category).toggleClass("category_active")
-
-$ imageSlider = ->
-  $('#slider').nivoSlider
-    effect: 'fade',
-    directionNavHide: false,
-    controlNav: true
+  $(".active").toggleClass("active")
+  $(category).toggleClass("active")

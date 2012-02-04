@@ -1,28 +1,44 @@
-= error_messages_for(project)
-= form_for project, :html => { :multipart => true } do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :description
-  = f.text_area :description
-  = f.label :url
-  = f.text_field :url
-  %fieldset
-    %legend Images
-    = f.fields_for :assets do |asset|
-      - if asset.object.new_record?
-        = asset.file_field :image
-      - else
-        = link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) )
-        = asset.check_box :_destroy
-        = asset.label :_destroy, 'Delete Image'
-  %field_set.categories
-    %legend Categories
-    - categories.each do |category|
-      = check_box_tag "category_#{category.id}", category.id, project.categories.include?(category), :name => 'project[category_ids][]'
-      = label_tag "category_#{category.id}", category.name
-  %field_set.roles
-    %legend Roles
-    - roles.each do |role|
-      = check_box_tag "role_#{role.id}", role.id, project.roles.include?(role), :name => 'project[role_ids][]'
-      = label_tag "role_#{role.id}", role.name
-  = f.submit
+.row
+  = error_messages_for(project)
+  = form_for project, :html => {:class => "form-horizontal", :multipart => true } do |f|
+    %div.control-group
+      = f.label :name, :class => 'control-label'
+      %div.controls
+        = f.text_field :name, :class => 'input-xlarge', :autofocus => true
+    %div.control-group
+      = f.label :description, :class => 'control-label'
+      %div.controls
+        = f.text_area :description, :class => 'input-xlarge', :rows => '6'
+    %div.control-group
+      = f.label :url, :class => 'control-label'
+      %div.controls
+        = f.text_field :url, :class => 'input-xlarge', :placeholder => 'http://'
+    %fieldset
+      %legend Images
+      = f.fields_for :assets do |asset|
+        - if asset.object.new_record?
+          %div.controls
+            = asset.file_field :image
+        - else
+          %div.controls
+            = link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) )
+          %div.controls
+            = asset.label :_destroy, :class => 'checkbox' do
+              Delete Image
+              = asset.check_box :_destroy
+    %field_set
+      %legend Categories
+      - categories.each do |category|
+        %div.controls
+          = label_tag "category_#{category.id}", :class => 'checkbox' do
+            = category.name
+            = check_box_tag "category_#{category.id}", category.id, project.categories.include?(category), :name => 'project[category_ids][]'
+    %field_set
+      %legend Roles
+      - roles.each do |role|
+        %div.controls
+          = label_tag "role_#{role.id}", :class => 'checkbox' do
+            = role.name
+            = check_box_tag "role_#{role.id}", role.id, project.roles.include?(role), :name => 'project[role_ids][]'
+    %div.form-actions
+      = f.submit :class => 'btn btn-success'

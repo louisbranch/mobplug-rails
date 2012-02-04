@@ -3,7 +3,7 @@ Given /^I have a project$/ do
 end
 
 Given /^I have multiple projects$/ do
-  1.upto(4) do |n|
+  1.upto(5) do |n|
     FactoryGirl.create(:project, :name => "Project #{n}")
   end
 end
@@ -65,7 +65,7 @@ Then /^I should see this project listed$/ do
 end
 
 Then /^I should only see the most recent ones$/ do
-  4.downto(2) do |n|
+  5.downto(2) do |n|
     page.should have_content "Project #{n}"
   end
   page.should_not have_content "Project 1"

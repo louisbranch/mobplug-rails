@@ -1,25 +1,30 @@
 %h2= @project.name
 - if admin?
-  = link_to 'Edit', edit_project_path(@project)
-  = link_to 'Delete', project_path(@project), :method => :delete, :confirm => 'Are you sure?'
-- unless @project.assets.empty?
-  %div.slider-wrapper.theme-default
-    %div#slider.nivoSlider
-      - @assets.each do |asset|
-        =image_tag(asset.image.url)
-:markdown
-  #{@project.description}
-- unless @project.categories.empty?
-  %ul#project_categories
-    %li
-      %strong Categories:
-    - @categories.each do |category|
-      %li= category.name
-- unless @project.roles.empty?
-  %ul#project_roles
-    %li
-      %strong Roles:
-    - @roles.each do |role|
-      %li= role.name
-%div#view_project
-  =link_to 'Visit the Project', @project.url, :class => 'button'
+  = link_to edit_project_path(@project), :class => 'btn' do
+    %i.icon-pencil
+    Edit
+  = link_to project_path(@project), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger' do
+    %i.icon-trash.icon-white
+    Delete
+  %hr.soften
+- if @project.assets.any?
+  %ul.thumbnails.span12
+    - @assets.each do |asset|
+      %li.thumbnail.span3=image_tag(asset.image.url(:small))
+= simple_format(@project.description)
+- if @project.categories.any?
+  .project_categories
+    %h4 Categories:
+    %ul.unstyled
+      - @categories.each do |category|
+        %li= category.name
+- if @project.roles.any?
+  .project_categories
+    %h4 Roles:
+    %ul.unstyled
+      - @roles.each do |role|
+        %li= role.name
+%hr.soften
+= link_to @project.url, :class => 'btn btn-primary' do
+  Visit Project
+  %i.icon-share-alt.icon-white

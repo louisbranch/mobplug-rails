@@ -1,11 +1,15 @@
 %h2 Projects
-%div#left_column
-  = link_to 'New Project', new_project_path if admin?
-  %ul#project_list
+- if admin?
+  = link_to new_project_path, :class => 'btn btn-success' do
+    %i.icon-plus.icon-white
+    New Project
+  %hr
+.row
+  %ul.thumbnails.span8#project_list
     = render @projects
-%div#right_column
-  %h3 Categories
-  %ul#category_menu
-    %li= link_to 'All Categories', categories_path, 'data-category' => 'all', :class => 'category_active'
-    - @categories.each do |category|
-      %li= link_to category.name, category_path(category), 'data-category' => normalize_name(category)
+  .span4
+    %h3 Categories
+    %ul.nav.nav-pills.nav-stacked#category_menu
+      %li{'data-category' => 'all', :class => 'active'}= link_to 'All Categories', categories_path
+      - @categories.each do |category|
+        %li{'data-category' => normalize_name(category)}= link_to category.name, category_path(category)

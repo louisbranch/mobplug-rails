@@ -1,13 +1,22 @@
-%hgroup
-  :markdown
-    ##I'm a **Product Manager** and **Rails Developer**
-    ##with a passion for **powerfully simple products**
-%div#recent_projects
-  %h3 Recent Projects
-  %ul#recent_projects
+- @title = "Product Manager and Ruby Developer"
+.row.introduction
+  %div.well
+    :markdown
+      ##I'm a **Product Manager** and **Ruby Developer**
+      ##with a passion for **powerfully simple products**
+%hr.soften
+%h2 Recent Projects
+.row
+  %ul.thumbnails
     - @projects.each do |project|
-      %li
-        = link_to(image_tag(project.assets.first.image.url(:small), :title => project.name), project_path(project)) unless project.assets.empty?
-        = link_to project.name, project_path(project)
-  %div#more_projects
-    =link_to 'View all Projects', projects_path, :class => "button"
+      %li.span3
+        = link_to project_path(project), :class => 'thumbnail' do
+          - if project.assets.any?
+            = image_tag project.assets.first.image.url(:small), :title => project.name
+          .caption
+            %h5= project.name
+%hr.soften
+%div.center
+  =link_to projects_path, :class => "btn btn-primary" do
+    %i.icon-th-list.icon-white
+    View all Projects

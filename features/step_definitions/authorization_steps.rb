@@ -7,7 +7,7 @@ end
 
 When /^I log in$/ do
   visit login_path
-  fill_in 'Password', :with => 'foobar'
+  fill_in 'password', :with => 'foobar'
   click_on 'Login'
 end
 

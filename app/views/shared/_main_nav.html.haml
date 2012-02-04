@@ -1,6 +1,10 @@
-%nav#main
-  =link_to 'home', root_path, is_controller_active?("home")
-  =link_to 'projects', projects_path, is_controller_active?("projects, categories")
-  =link_to 'about', about_path, is_controller_active?("about")
-  =link_to 'contact', contact_path, is_controller_active?("contacts")
-  
+%div.span4
+  %ul.nav.nav-pills
+    %li{:class => "#{is_controller_active?('home')}"}
+      =link_to 'home', root_path
+    %li{:class => "#{is_controller_active?(['projects', 'categories'])}"}
+      =link_to 'projects', projects_path
+    %li{:class => "#{is_controller_active?('about')}"}
+      =link_to 'about', about_path
+    %li{:class => "#{is_controller_active?('contacts')}"}
+      =link_to 'contact', contact_path

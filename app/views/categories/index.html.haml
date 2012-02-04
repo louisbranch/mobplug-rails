@@ -1,5 +1,9 @@
 %h2 Categories
-= link_to 'New Category', new_category_path if admin?
-%ul
+- if admin?
+  = link_to new_category_path, :class => 'btn btn-success' do
+    %i.icon-plus.icon-white
+    New Category
+%hr.soften
+%ul.unstyled
   - @categories.each do |category|
     %li= link_to category.name, category_path(category)

@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: 995124911ec54aa1b860b7f0e78b6a6b63f6f560
+  branch: 2.0
+  specs:
+    bootstrap-sass (2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -215,6 +222,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  bootstrap-sass!
   capybara
   coffee-rails (~> 3.2.1)
   coffeebeans

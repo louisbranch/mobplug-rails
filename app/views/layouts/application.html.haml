@@ -3,21 +3,15 @@
   %head
     %title= title
     %meta{:name => 'description', :content => "#{@description}"}
-    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Ubuntu"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-    = render :partial => 'shared/ga'
-  %body{:class => "#{@body_class}", :id => "#{@body_id}"}
-    %div#clouds
-    %div#wrapper
-      %header
-        %h1= link_to 'luizbranco', root_path
+    -#= render :partial => 'shared/ga'
+  %body
+    %div.container
+      %header.row
+        %div.span4
+          %h1= link_to 'luizbranco', root_path
         = render :partial => 'shared/main_nav'
       = render :partial => 'shared/flash_messages'
-      = yield
-    %footer
-      %div#scenario
-        =image_tag(asset_path("me.gif"), :title => "It's me, Luiz!") 
-      %div#ground
-    
+      = yield    
