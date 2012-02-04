@@ -1,10 +1,29 @@
+html
+  background: #D3E1F6 url(asset_path("gradient.png", image)) repeat-x left top
+
 body
   font-size: 16px
-  background-color: #f9f9f9
+  background-color: transparent
+  @media all and (min-width: 1200px)
+    background: url(asset_path("mounts.png", image)) no-repeat left bottom
+  font-size: 100%
+
+p
+  font-size: 15px
+  line-height: 25px
+
+p + p
+  margin-top: 15px
 
 h2
   margin-top: 10px
   margin-bottom: 10px
+
+h4
+  font-size: 16px
+
+.container
+  min-height: 600px
 
 header
   margin-top: 20px
@@ -33,6 +52,20 @@ header
           border: 1px solid #e5e5e5
     li.active a:hover
       border: 1px solid transparent
+
+footer
+  clear: both
+  text-align: center
+  padding-top: 200px
+  background: url(asset_path("mountains.png", image)) no-repeat center top
+  div#scenario
+    padding-top: 100px
+    background: url(asset_path("scenario.png", image)) repeat-x left bottom
+    img
+      margin-bottom: -5px
+  div#ground
+    padding-bottom: 47px
+    background: url(asset_path("ground.png", image)) repeat-x left bottom
 
 .row
   margin-left: 0
@@ -66,7 +99,16 @@ hr.soften
 .alert
   margin-top: 20px
 
+.thumbnail-white
+  background-color: #fff
+.thumbnails a
+  background-color: #fff
 .thumbnails > li > a.span2
   margin-left: 0
 .thumbnails > li > .span5 > h4
-  margin: 10px 0
+  margin-bottom: 10px
+  a
+    background-color: transparent
+
+.form-actions
+  background-color: transparent

@@ -1,3 +1,5 @@
+- @title = @project.name
+- @description = @project.description
 %h2= @project.name
 - if admin?
   = link_to edit_project_path(@project), :class => 'btn' do
@@ -10,7 +12,7 @@
 - if @project.assets.any?
   %ul.thumbnails.span12
     - @assets.each do |asset|
-      %li.thumbnail.span3=image_tag(asset.image.url(:small))
+      %li.thumbnail.thumbnail-white.span3=image_tag(asset.image.url(:small))
 = simple_format(@project.description)
 - if @project.categories.any?
   .project_categories

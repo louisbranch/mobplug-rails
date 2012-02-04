@@ -14,4 +14,8 @@
           %h1= link_to 'luizbranco', root_path
         = render :partial => 'shared/main_nav'
       = render :partial => 'shared/flash_messages'
-      = yield    
+      = yield
+    %footer
+      %div#scenario
+        =image_tag(asset_path("me.gif"), :title => "It's me, Luiz!")
+      %div#ground  

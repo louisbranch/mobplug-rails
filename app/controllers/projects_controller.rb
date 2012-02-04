@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   before_filter :load_resources, :only => [:new, :create, :edit, :update]
 
   def index
-    @title = 'All Luiz Branco\'s Projects'
     @categories = Category.all
     @projects = Project.all
   end
@@ -13,8 +12,6 @@ class ProjectsController < ApplicationController
     @categories = @project.categories
     @roles = @project.roles
     @assets = @project.assets
-    @title = @project.name
-    @description = @project.description
   end
 
   def new
