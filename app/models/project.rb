@@ -10,8 +10,9 @@ class Project < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :description, :presence => true
+  validates :launch, :presence => true
   validates_associated :assets
 
-  default_scope order('created_at DESC')
+  default_scope order('launch DESC')
 
 end

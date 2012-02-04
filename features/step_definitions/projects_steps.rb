@@ -4,7 +4,7 @@ end
 
 Given /^I have multiple projects$/ do
   1.upto(5) do |n|
-    FactoryGirl.create(:project, :name => "Project #{n}")
+    FactoryGirl.create(:project, :name => "Project #{n}", :launch => "201#{n}-01-01")
   end
 end
 
@@ -18,6 +18,9 @@ When /^I create a new project$/ do
   click_on 'New Project'
   fill_in 'Name', :with => 'MyCoupoms.com'
   fill_in 'Description', :with => 'A simple way to track your online coupoms.'
+  fill_in 'Url', :with => 'http://www.meuscupons.com'
+  select '2012', :from => 'project_launch_1i'
+  select 'June', :from => 'project_launch_2i'
   click_on 'Create Project'
 end
 
@@ -46,6 +49,8 @@ Then /^I should see a project listed$/ do
   page.should have_content 'A new project was created!'
   page.should have_content 'MyCoupoms.com'
   page.should have_content 'A simple way to track your online coupoms.'
+  page.should have_content 'Visit Project'
+  page.should have_content 'Jun / 2012'
 end
 
 Then /^this project should have been updated$/ do

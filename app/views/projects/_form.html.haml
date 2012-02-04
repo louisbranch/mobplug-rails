@@ -13,6 +13,10 @@
       = f.label :url, :class => 'control-label'
       %div.controls
         = f.text_field :url, :class => 'input-xlarge', :placeholder => 'http://'
+    .control-group
+      = f.label :launch, 'Launch Date', :class => 'control-label'
+      .controls
+        =f.date_select(:launch, {:discard_day => true, :start_year => Time.now.year-2, :end_year => Time.now.year}, {:class => 'span2'})
     %fieldset
       %legend Images
       = f.fields_for :assets do |asset|

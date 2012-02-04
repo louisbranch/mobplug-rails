@@ -24,6 +24,12 @@ describe Project do
       project.errors[:description].should include("can't be blank")
     end
 
+    it "requires a launch date" do
+      project.launch = nil
+      should_not be_valid
+      project.errors[:launch].should include("can't be blank")
+    end
+
   end
 
 end

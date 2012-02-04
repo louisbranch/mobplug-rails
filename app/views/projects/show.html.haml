@@ -14,6 +14,10 @@
     - @assets.each do |asset|
       %li.thumbnail.thumbnail-white.span3=image_tag(asset.image.url(:small))
 = simple_format(@project.description)
+- if @project.launch
+  .project_launch
+    %h4 Lauch Year:
+    = @project.launch.strftime('%b / %Y')
 - if @project.categories.any?
   .project_categories
     %h4 Categories:
