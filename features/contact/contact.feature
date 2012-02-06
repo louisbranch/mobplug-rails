@@ -5,4 +5,4 @@ Feature: Contact the site
 
   Scenario: Send a email through the site
     When I send a new message to the site
- 	  Then this message should be received by the admins
+    Then this message should be received by the admins
