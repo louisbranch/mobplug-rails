@@ -7,4 +7,7 @@ class Asset < ActiveRecord::Base
       :access_key_id => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET']
   }
+
+  default_scope order('id ASC')
+
 end
