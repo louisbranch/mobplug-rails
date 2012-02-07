@@ -8,13 +8,13 @@ Feature: View Projects
     When I go to the projects list
     Then I should see this project listed
 
-  Scenario: View projects of a category
+  Scenario: View projects from a category
     Given I have a project
     And this project has a category
     When I go to this category page
     Then I should see this project listed
 
-  Scenario: View most recent project
+  Scenario: View most recent projects
     Given I have multiple projects
     When I go to the home page
     Then I should only see the most recent ones

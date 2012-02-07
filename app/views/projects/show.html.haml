@@ -16,7 +16,7 @@
 = simple_format(@project.description)
 - if @project.launch
   .project_launch
-    %h4 Lauch Year:
+    %h4 Launch:
     = @project.launch.strftime('%b / %Y')
 - if @project.categories.any?
   .project_categories
