@@ -12,7 +12,9 @@
 - if @project.assets.any?
   %ul.thumbnails.span12
     - @assets.each do |asset|
-      %li.thumbnail.thumbnail-white.span3=image_tag(asset.image.url(:small))
+      %li.thumbnail.thumbnail-white.span3
+        = link_to asset.image.url(:original), :class => 'full_project_img' do
+          =image_tag(asset.image.url(:small))
 = simple_format(@project.description)
 - if @project.launch
   .project_launch
@@ -31,6 +33,7 @@
       - @roles.each do |role|
         %li= role.name
 %hr.soften
-= link_to @project.url, :class => 'btn btn-primary' do
-  Visit Project
-  %i.icon-share-alt.icon-white
+- unless @project.url.empty?
+  = link_to @project.url, :class => 'btn btn-primary' do
+    Visit Project
+    %i.icon-share-alt.icon-white
