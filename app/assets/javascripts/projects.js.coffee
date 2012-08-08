@@ -27,7 +27,7 @@ $ fullsizeProjectImage = ->
       $("<div id=dialog></div>").dialog
         title: 'Screenshot',
         closeText: 'fechar',
-        width: 600,
+        width: 800,
         position: ['center', 100],
         open: ->
           $("div#dialog").html("<img src="+ img_source+">")
